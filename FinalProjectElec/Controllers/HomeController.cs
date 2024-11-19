@@ -26,5 +26,9 @@ namespace FinalProjectElec.Controllers
 
             return View();
         }
+        public ActionResult Homepage()
+        {
+            return View();
+        }
     }
 }

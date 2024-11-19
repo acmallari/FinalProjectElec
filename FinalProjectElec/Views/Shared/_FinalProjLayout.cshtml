@@ -8,13 +8,44 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="~/Scripts/materialize.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .navbar-fixed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Ensure the navbar is on top of the carousel */
+        }
+
+        .nav-wrapper {
+            background: rgba(0, 0, 0, 0) !important; /* Transparent background */
+            transition: background-color 0.3s ease;
+        }
+
+            .nav-wrapper:hover {
+                background: rgba(255,254,200) !important; /* Transparent background */
+            }
+
+        .carousel-item img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 
 </head>
 <body ng-app="FinalProj" ng-controller="FinalProjController">
     <div>
         @RenderBody()
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.carousel');
+            var instance = M.Carousel.init(elems, {
+                fullWidth: true
+            });
+        });
 
+    </script>
     <script src="~/Scripts/jquery-3.7.0.min.js"></script>
     <script src="~/Scripts/angular.js"></script>
     <script src="~/Scripts/AngularScripts/Module.js"></script>

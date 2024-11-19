@@ -143,6 +143,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\ust bg.jpg" />
+    <Content Include="Content\Images\ust%281%29.jpg" />
+    <Content Include="Content\Images\ust%282%29.jpg" />
+    <Content Include="Content\Images\ust.jpg" />
     <Content Include="Content\materialize.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
