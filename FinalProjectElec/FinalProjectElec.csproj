@@ -976,6 +976,7 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Shared\_FinalProjLayout.cshtml" />
     <Content Include="Views\Home\Homepage.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
