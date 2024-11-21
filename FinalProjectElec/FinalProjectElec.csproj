@@ -143,12 +143,26 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\feast_of_flesh_bb\font info.txt" />
+    <Content Include="Content\Images\aiah.jpg" />
+    <Content Include="Content\Images\celebrate-1.svg" />
+    <Content Include="Content\Images\chatting-5.svg" />
+    <Content Include="Content\Images\colet.jpg" />
+    <Content Include="Content\Images\connecting-20.svg" />
+    <Content Include="Content\Images\connecting-4.svg" />
+    <Content Include="Content\Images\gwen.jpg" />
+    <Content Include="Content\Images\jhoanna.jpg" />
+    <Content Include="Content\Images\loading-19.svg" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\sheena.jpg" />
+    <Content Include="Content\Images\stacey.jpg" />
     <Content Include="Content\Images\ust bg.jpg" />
     <Content Include="Content\Images\ust%281%29.jpg" />
     <Content Include="Content\Images\ust%282%29.jpg" />
     <Content Include="Content\Images\ust.jpg" />
     <Content Include="Content\materialize.css" />
+    <Content Include="Content\font.css" />
+    <Content Include="Content\Animation.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -200,6 +214,8 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Content\feast_of_flesh_bb\FEASFBI_.TTF" />
+    <Content Include="Content\feast_of_flesh_bb\FEASFBRG.TTF" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
@@ -977,6 +993,16 @@
     <Content Include="Views\Shared\_FinalProjLayout.cshtml" />
     <Content Include="Views\Home\Homepage.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Home\Accounts.cshtml" />
+    <Content Include="Views\Home\Logs.cshtml" />
+    <Content Include="Views\Home\Candidates.cshtml" />
+    <Content Include="Views\Home\Parties.cshtml" />
+    <Content Include="Views\Home\Positions.cshtml" />
+    <Content Include="Views\Home\Tallies.cshtml" />
+    <Content Include="Views\Home\CandidateStud.cshtml" />
+    <Content Include="Views\Home\RegisterStud.cshtml" />
+    <Content Include="Views\Home\LoginStud.cshtml" />
+    <Content Include="Views\Home\LoginAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

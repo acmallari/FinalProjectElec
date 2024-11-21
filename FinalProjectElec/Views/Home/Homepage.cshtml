@@ -1,11 +1,17 @@
 ﻿@{
     Layout = "~/Views/Shared/_FinalProjLayout.cshtml";
 }
+<link type="text/css" href="~/Content/Animation.css" rel="stylesheet" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <style>
+
+    
+
     body {
         font-family: 'Poppins', sans-serif;
+        background-color: rgba(255,254,200);
     }
+
     .btn {
         background-color: #000000;
         color: #ffffff;
@@ -17,7 +23,7 @@
         box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
         transition: .4s;
     }
-     
+
 
         .btn span:last-child {
             display: none;
@@ -30,7 +36,7 @@
             color: #000000 !important;
         }
 
-           
+
 
         .btn:active {
             background-color: #87dbd0;
@@ -73,24 +79,60 @@
 
     .logo {
         position: absolute;
-        width:auto;
-        height:60%;
+        width: auto;
+        height: 60%;
         top: 16%;
-        left: 36%;        
+        left: 36%;
         padding: 10px 10px;
         border-radius: 5px;
         text-align: center;
     }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 5;
+        margin-top: 1em; 
+        padding: 1em 1em;
+        width: 50%;
+        margin-left: 17.5em;
+    }
+
+    .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); 
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+        padding: 0; 
+    }
+
+    .white {
+        background-color: white;
+        opacity: 1;
+        margin-top: -4em; 
+        padding: 2em 3em;
+        border-radius: 1rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+    }
 </style>
 <nav class="transparent navbar-fixed">
     <div class="nav-wrapper">
-        <a class="brand-logo black-text"><img src="~/Content/Images/logo.png" alt="Alternate Text" style="width:100%; height:2.3em;"/></a>
-        <a class="center brand-logo black-text">Decision that Leave a Mark</a>
+        <a class="brand-logo black-text"><img src="~/Content/Images/logo.png" alt="Alternate Text" style="width:100%; height:2.3em;" /></a>
+        <a class="center brand-logo black-text clawed-text" style="font-size:47px;">Decision that Leave a Mark</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html" style="color:black">Candidates</a></li>
+            <li><a href="CandidateStud" style="color:black">Candidates</a></li>
             <li></li>
             <li><a href="badges.html" style="color:black">Vote</a></li>
-            <li><a class="btn white-text">Login</a></li>
+            <li><a href="badges.html" style="color:black">About Us</a></li>
+            <li><a class="btn white-text" href="RegisterStud">Register</a></li>
         </ul>
     </div>
 </nav>
@@ -106,15 +148,134 @@
             </div>
             <div class="row">
                 <div class="col s6 m6 l6 center-align">
-                    <a class="button black-text" style="font-size: 35px; font-family: 'Poppins'"><i class="material-icons left black-text" style="font-size:35px;">info_outline</i>Learn More</a>
+                    <a class="button black-text" style="font-size: 35px; font-family: 'Poppins'" href="#Step"><i class="material-icons left black-text" style="font-size:35px;">info_outline</i>Learn More</a>
                 </div>
                 <div class="col s6 m6 l6 center-align">
-                    <a class="button black-text" style="font-size: 35px; font-family: 'Poppins'"><i class="material-icons left black-text" style="font-size:35px;">how_to_vote</i>Vote Now</a>
+                    <a class="button black-text" style="font-size: 35px; font-family: 'Poppins'" href="RegisterStud"><i class="material-icons left black-text" style="font-size:35px;">how_to_vote</i>Vote Now</a>
                 </div>
             </div>
         </div>
         <div class="col s2 m2 l2"></div>
     </div>
 </div>
+<div class="row">
+    <div class="container mt-5" style="position: relative; z-index: 2;">
 
+        <div class="card white" style="margin-top: -3em; padding: 2em 3em; position: relative; z-index: 5;">
+            <h3 class="center-align" id="Step">Steps to Voting</h3>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col s6 m6 l6">
+        <img src="~/Content/Images/chatting-5.svg" class="animate-on-scroll left" alt="Alternate Text" style="width:100%; height:350px;  right:2em;" />
+    </div>
+    <div class="col s6 m6 l6">
+        <div class="card white animate-on-scroll right" style="margin-top: 5em; padding: 2em; width:70%; right:12em;">
+            <h3>Register using your Student Number</h3>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">
+                Press the register button to go to the registration page where you will need to input your Student Number and Email for the OTP
+            </p>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col s6 m6 l6">
+        <div class="card white animate-on-scroll left" style="margin-top: 10em; padding: 2em; width:70%; right:6em;">
+            <h3>Check your Email</h3>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">
+                Check your Email for the OTP number to be used as your password for logging in
+            </p>
+        </div>
+    </div>
+    <div class="col s6 m6 l6">
+        <img src="~/Content/Images/connecting-4.svg" class="animate-on-scroll right" alt="Alternate Text" style="width:100%; height:350px; margin-top:1em; right:5em;" />
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col s6 m6 l6">
+        <img src="~/Content/Images/connecting-20.svg" class="animate-on-scroll left" alt="Alternate Text" style="width:100%; height:350px;  right:2em;" />
+    </div>
+    <div class="col s6 m6 l6">
+        <div class="card white animate-on-scroll right" style="margin-top: 5em; padding: 2em; width:70%; right:12em;">
+            <h3>Login</h3>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">
+                Enter your student number together with the OTP that you got from the email to login
+            </p>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col s6 m6 l6">
+        <div class="card white animate-on-scroll left" style="margin-top: 5em; padding: 2em; width:70%; right:6em;">
+            <h3>Learn about the Candidates</h3>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">
+                Use our candidate section to check for more information about those who are running to make your decision easier!
+            </p>
+            <a href="CandidateStud" class="btn" style="display: inline-block; margin-top: 1em;">
+                Check it out!
+            </a>
+        </div>
+    </div>
+    <div class="col s6 m6 l6">
+        <img src="~/Content/Images/loading-19.svg" class="animate-on-scroll right" alt="Alternate Text" style="width:100%; height:350px; margin-top:1em; right:5em;" />
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col s6 m6 l6">
+        <img src="~/Content/Images/celebrate-1.svg" class="animate-on-scroll left" alt="Alternate Text" style="width:100%; height:350px;  right:2em;" />
+    </div>
+    <div class="col s6 m6 l6">
+        <div class="card white animate-on-scroll right" style="margin-top: 6em; padding: 2em; width:70%; right:12em;">
+            <h3>Vote Wisely</h3>
+            <p style="font-size: 1.1rem; line-height: 1.6; color: #555;">
+                After checking for the backgrounds of the candidate, you can now vote for your chosen candidate that you think will bring good change in the future!
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const learnMoreButton = document.querySelector('a[href="#Step"]');
+        const targetSection = document.querySelector("#Step");
 
+        if (learnMoreButton && targetSection) {
+            learnMoreButton.addEventListener("click", function (event) {
+                event.preventDefault();
+                targetSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            });
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const elementsToAnimate = document.querySelectorAll(".animate-on-scroll");
+
+        const observerOptions = {
+            root: null, 
+            threshold: 0.1 
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains("left")) {
+                        entry.target.classList.add("slide-in-left");
+                    } else if (entry.target.classList.contains("right")) {
+                        entry.target.classList.add("slide-in-right");
+                    }
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        elementsToAnimate.forEach(el => observer.observe(el));
+    });
+
+</script>

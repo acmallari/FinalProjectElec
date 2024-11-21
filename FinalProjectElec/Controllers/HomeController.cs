@@ -34,5 +34,45 @@ namespace FinalProjectElec.Controllers
         {
             return View();
         }
+        public ActionResult Accounts()
+        {
+            return View();
+        }
+        public ActionResult Logs()
+        {
+            return View();
+        }
+        public ActionResult Candidates()
+        {
+            return View();
+        }
+        public ActionResult Parties()
+        {
+            return View();
+        }
+        public ActionResult Positions()
+        {
+            return View();
+        }
+        public ActionResult Tallies()
+        {
+            return View();
+        }
+        public ActionResult CandidateStud()
+        {
+            return View();
+        }
+        public ActionResult LoginStud()
+        {
+            return View();
+        }
+        public ActionResult RegisterStud()
+        {
+            return View();
+        }
+        public ActionResult LoginAdmin()
+        {
+            return View();
+        }
     }
 }

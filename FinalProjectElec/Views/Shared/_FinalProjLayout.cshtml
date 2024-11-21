@@ -6,10 +6,14 @@
     <title>@ViewBag.Title</title>
     <link type="text/css" href="~/Content/materialize.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" href="~/Content/font.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="~/Scripts/materialize.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
+        .clawed-text {
+            font-family: 'FeastOfFlesh', sans-serif;
+        }
         .navbar-fixed {
             position: absolute;
             top: 0;
@@ -21,11 +25,8 @@
         .nav-wrapper {
             background: rgba(255,254,200) !important;
             transition: background-color 0.3s ease;
+            text-decoration:none;
         }
-
-            .nav-wrapper:hover {
-                background: rgba(255,254,200) !important; /* Transparent background */
-            }
 
         .carousel-item img {
             max-width: 100%;

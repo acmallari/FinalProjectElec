@@ -1,0 +1,88 @@
+﻿@{
+    Layout = "~/Views/Shared/_FinalProjLayout.cshtml";
+}
+<style>
+    shadow {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease;
+    }
+
+    .shadow:hover {
+        box-shadow: 0 15px 60px rgba(0, 0, 0, 1);
+    }
+
+    .shadow-1 {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease;
+    }
+
+        .shadow-1:hover {
+            box-shadow: 0 20px 40px rgba(205, 254, 194, 1);
+        }
+
+    .shadow-2 {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease;
+    }
+
+        .shadow-2:hover {
+            box-shadow: 0 20px 40px rgba(241, 169, 160, 1);
+        }
+
+
+
+    .card-rounded {
+        border: 2px solid black;
+        border-radius: 20px;
+        overflow: hidden;
+        width: 60%;
+        margin-left: 12em;
+    }
+</style>
+<div class="row" style="background-image: url('/Content/Images/ust(2).jpg'); background-position: center; min-height:100vh; background-repeat: no-repeat; background-size: cover;">
+    <div class="col s2 m2 l2">
+    </div>
+    <div class="col s8 m8 l8">
+        <div class="row center">
+            <div class="col s12 m12 l12">
+                <div class="card card-rounded grey lighten-3 shadow" style="margin-top: 8em;">
+                    <div class="card-content black-text">
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <span class="card-title" style="font-size: 40px; font-family: Poppins, Courier, monospace">•• Login ••</span>
+                                <span class="card-title" style="font-size: 15px; font-family: Poppins ">Please fill out the form to Login to your Account</span>
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+                                        <i class="material-icons prefix">mail</i>
+                                        <input id="uEmail" type="text" class="validate" ng-model="uEmail" required>
+                                        <label for="uEmail" style="font-family: Poppins">Username*</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12">
+                                        <i class="material-icons prefix">lock</i>
+                                        <input id="uPass" type="password" class="validate" ng-model="uPass" required>
+                                        <label for="uPass" style="font-family: Poppins">Password*</label>
+                                    </div>
+                                </div>
+                                <div class="col s12 m12 l12">
+                                    <div class="col s6 m6 l6">
+                                        <a class="waves-effect waves-light red lighten-3 btn-large col s12 m12 l12 shadow-2 black-text" style="font-size: 20px; font-family: Poppins;" ng-click="submit()"><i class="material-icons left black-text">cancel</i>Cancel</a>
+                                    </div>
+                                    <div class="col s6 m6 l6">
+                                        <a class="waves-effect waves-light green lighten-3 btn-large col s12 m12 l12 shadow-1 black-text" style="font-size: 20px; font-family: Poppins;" ng-click="submit()"><i class="material-icons left black-text">keyboard_tab</i>Login</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s2 m2 l2">
+    </div>
+</div>

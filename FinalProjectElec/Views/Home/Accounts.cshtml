@@ -1,0 +1,243 @@
+﻿@{
+    Layout = "~/Views/Shared/_FinalProjLayout.cshtml";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+
+    .btn-custom {
+        color: #FDFD96 !important;
+        background-color: #0e1111;
+    }
+
+        .btn-custom:hover {
+            color: #0e1111 !important;
+            background-color: #FDFD96;
+            border-color: #FDFD96;
+        }
+
+        .btn-custom:hover {
+            color: black !important;
+        }
+
+    .table-custom {
+        background-color: #000000 !important;
+        border-color: white;
+    }
+
+    .table-custom-1 {
+        background-color: #FFE28E !important;
+
+    }
+
+    ::after,
+    ::before {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    h1 {
+        font-weight: 600;
+        font-size: 1.5rem;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .wrapper {
+        display: flex;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    }
+
+    .main {
+        min-height: 100vh;
+        width: 100%;
+        overflow-x: auto !important;
+        transition: all 0.35s ease-in-out;
+        background-color: #FFF6DD;
+    }
+
+
+    #sidebar {
+        width: 300px;
+        min-width: 70px;
+        z-index: 1000;
+        transition: all .25s ease-in-out;
+        background-color: #FFE28E;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+    }
+
+    .toggle-btn {
+        background-color: transparent;
+        cursor: pointer;
+        border: 0;
+        padding: 1rem 1.5rem;
+    }
+
+        .toggle-btn i {
+            font-size: 2rem;
+            color: Black;
+        }
+
+    .sidebar-logo {
+        margin: auto 0;
+    }
+
+    .sidebar-link.active {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        transition: all .3 ease-in-out;
+    }
+
+    .sidebar-logo a {
+        color: black;
+        font-size: 2rem;
+        font-weight: 1000;
+    }
+
+    .nav-link {
+        border-radius: 0;
+    }
+
+    .sidebar-nav {
+        padding: 2rem 0;
+        flex: 1 1 auto;
+    }
+
+    a.sidebar-link {
+        padding: .625rem 1.625rem;
+        color: black;
+        display: block;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        border-left: 3px solid transparent;
+    }
+
+    .sidebar-link i {
+        font-size: 1.1rem;
+        margin-right: .75rem;
+    }
+
+    a.sidebar-link:hover {
+        color: white;
+        background-color: #0e1111;
+        border-left: 3px solid white;
+    }
+
+    .sidebar-item {
+        position: relative;
+    }
+</style>
+
+<div class="wrapper">
+    <aside id="sidebar">
+        <div class="d-flex">
+            <button class="toggle-btn" type="button">
+                <i class="bi bi-file-person h3"></i>
+            </button>
+            <div class="sidebar-logo">
+                <a href="Dashboard">Admin</a>
+            </div>
+        </div>
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a href="Dashboard" class="sidebar-link">
+                    <i class="bi bi-table h6 me-2"></i>
+                    <span>Overview</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="Accounts" class="sidebar-link active">
+                    <i class="bi bi-person-workspace h6 me-2"></i>
+                    <span>Accounts</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="Logs" class="sidebar-link">
+                    <i class="bi me-2 bi-file-code h6"></i>
+                    <span>Logs</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="Candidates" class="sidebar-link">
+                    <i class="bi bi-people me-2 h6"></i>
+                    <span>Candidates</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="Parties" class="sidebar-link">
+                    <i class="bi bi-trophy h6 me-2"></i>
+                    <span>Parties</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="Positions" class="sidebar-link">
+                    <i class="bi bi-person-raised-hand h6 me-2"></i>
+                    <span>Positions</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="Tallies" class="sidebar-link">
+                    <i class="bi bi-check-square h6 me-2"></i>
+                    <span>Tallies</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="LoginAdmin" class="sidebar-link">
+                    <i class="bi bi-box-arrow-left h6 me-2"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="#" class="sidebar-link">
+                <center><img src="~/Content/Images/logo.png" alt="" style="width:50%; height:auto;" class="me-3"></center>
+            </a>
+        </div>
+    </aside>
+    <div class="main p-3">
+        <div class='container mt-5'>
+            <form method='post' class='mb-3'>
+                <button type='button' name='add' class='btn btn-custom ms-2' data-bs-toggle='modal' btn-sm me-3 data-bs-target='#add'><i class='bi bi-database-fill-add me-2'></i>Add a Record</button>
+            </form>"
+        </div>
+        <div class='container-fluid text-center mt-3'>
+        <table class='table table-custom table-bordered mx-auto border-1' style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
+                <tr>
+                    <th class='table-custom text-white'> Name </th>
+                    <th class='table-custom text-white'> OTP </th>
+                    <th class='table-custom text-white'> Type </th>
+                    <th class='table-custom text-white'> Created On </th>
+                    <th class='table-custom text-white'> Updated On </th>
+                </tr>
+                <tr>
+                    <td class='table-custom-1'> Angelico Mallari </td>
+                    <td class='table-custom-1'> 319016 </td>
+                    <td class='table-custom-1'> Student </td>
+                    <td class='table-custom-1'> 11/21/2024 </td>
+                    <td class='table-custom-1'> 11/21/2024 </td>
+
+                </tr>
+        </table>
+        </div>
+    </div>
+    </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+                crossorigin="anonymous"></script>

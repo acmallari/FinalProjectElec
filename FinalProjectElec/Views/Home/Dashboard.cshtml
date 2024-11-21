@@ -57,7 +57,7 @@
 
     .wrapper {
         display: flex;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow effect */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     }
 
     .main {
@@ -77,7 +77,7 @@
         background-color: #FFE28E;
         display: flex;
         flex-direction: column;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Adjusted shadow effect */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
     }
 
     .toggle-btn {
@@ -99,7 +99,7 @@
     .sidebar-link.active {
         margin-left: 2rem;
         margin-right: 2rem;
-        border: 1px solid #FDFD96;
+        border: 1px solid #000000;
         border-radius: 5px;
         transition: all .3 ease-in-out;
     }
@@ -151,50 +151,56 @@
                 <i class="bi bi-file-person h3"></i>
             </button>
             <div class="sidebar-logo">
-                <a href="#">Admin</a>
+                <a href="Dashboard">Admin</a>
             </div>
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="Dashboard" class="sidebar-link active">
                     <i class="bi bi-table h6 me-2"></i>
                     <span>Overview</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
-                    <i class="bi bi-bus-front h6 me-2"></i>
-                    <span>Bus Information</span>
+                <a href="Accounts" class="sidebar-link">
+                    <i class="bi bi-person-workspace h6 me-2"></i>
+                    <span>Accounts</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
+                <a href="Logs" class="sidebar-link">
                     <i class="bi me-2 bi-file-code h6"></i>
                     <span>Logs</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
-                    <i class="bi bi-calendar-check me-2 h6"></i>
-                    <span>Reservation</span>
+                <a href="Candidates" class="sidebar-link">
+                    <i class="bi bi-people me-2 h6"></i>
+                    <span>Candidates</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
-                    <i class="bi bi-pin-map h6 me-2"></i>
-                    <span>Route</span>
+                <a href="Parties" class="sidebar-link">
+                    <i class="bi bi-trophy h6 me-2"></i>
+                    <span>Parties</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
-                    <i class="bi bi-clock h6 me-2"></i>
-                    <span>Schedule</span>
+                <a href="Positions" class="sidebar-link">
+                    <i class="bi bi-person-raised-hand h6 me-2"></i>
+                    <span>Positions</span>
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
-                    <i class="bi bi-person-workspace h6 me-2"></i>
-                    <span>Users</span>
+                <a href="Tallies" class="sidebar-link">
+                    <i class="bi bi-check-square h6 me-2"></i>
+                    <span>Tallies</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="LoginAdmin" class="sidebar-link">
+                    <i class="bi bi-box-arrow-left h6 me-2"></i>
+                    <span>Logout</span>
                 </a>
             </li>
         </ul>
@@ -213,14 +219,14 @@
                             <div class="card-body rounded">
                                 <div class="d-flex align-items-center">
                                     <div>
-                                        <i class="bi bi-people h2"></i>
+                                        <i class="bi bi-person-workspace h2"></i>
                                     </div>
                                     <div class="ml-4">
-                                        <h5 class="card-title mb-0 mx-3">Candidates</h5>
+                                        <h5 class="card-title mb-0 mx-3">Accounts</h5>
                                     </div>
                                 </div>
                             </div>
-                            <a href="bus_information.php" class="btn btn-custom text-white d-inline-block" style="transition: color 0.3s;">View</a>
+                            <a href="Accounts" class="btn btn-custom text-white d-inline-block" style="transition: color 0.3s;">View</a>
                         </div>
                     </div>
                     <div class="col-4">
@@ -235,7 +241,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="logs.php" class="btn btn-custom text-white d-inline-block">View</a>
+                            <a href="Logs" class="btn btn-custom text-white d-inline-block">View</a>
                         </div>
                     </div>
                     <div class="col-4">
@@ -243,14 +249,14 @@
                             <div class="card-body rounded">
                                 <div class="d-flex align-items-center">
                                     <div>
-                                        <i class="bi bi-star h2"></i>
+                                        <i class="bi bi-people h2"></i>
                                     </div>
                                     <div class="ml-4">
-                                        <h5 class="card-title mb-0 mx-3">Score</h5>
+                                        <h5 class="card-title mb-0 mx-3">Candidates</h5>
                                     </div>
                                 </div>
                             </div>
-                            <a href="reservation.php" class="btn btn-custom text-white d-inline-block">View</a>
+                            <a href="Candidates" class="btn btn-custom text-white d-inline-block">View</a>
                         </div>
                     </div>
                 </div>
@@ -260,14 +266,14 @@
                             <div class="card-body rounded">
                                 <div class="d-flex align-items-center">
                                     <div>
-                                        <i class="bi bi-person-check h2"></i>
+                                        <i class="bi bi-trophy h2"></i>
                                     </div>
                                     <div class="ml-4">
-                                        <h5 class="card-title mb-0 mx-3">Voter</h5>
+                                        <h5 class="card-title mb-0 mx-3">Parties</h5>
                                     </div>
                                 </div>
                             </div>
-                            <a href="route.php" class="btn btn-custom text-white d-inline-block">View</a>
+                            <a href="Parties" class="btn btn-custom text-white d-inline-block">View</a>
                         </div>
                     </div>
                     <div class="col-4">
@@ -275,14 +281,14 @@
                             <div class="card-body rounded">
                                 <div class="d-flex align-items-center">
                                     <div>
-                                        <i class="bi bi-clock h2"></i>
+                                        <i class="bi bi-person-raised-hand h2"></i>
                                     </div>
                                     <div class="ml-4">
-                                        <h5 class="card-title mb-0 mx-3">Schedule</h5>
+                                        <h5 class="card-title mb-0 mx-3">Positions</h5>
                                     </div>
                                 </div>
                             </div>
-                            <a href="schedule.php" class="btn btn-custom text-white d-inline-block">View</a>
+                            <a href="Positions" class="btn btn-custom text-white d-inline-block">View</a>
                         </div>
                     </div>
                     <div class="col-4">
@@ -290,14 +296,14 @@
                             <div class="card-body rounded">
                                 <div class="d-flex align-items-center">
                                     <div>
-                                        <i class="bi bi-person-workspace h2"></i>
+                                        <i class="bi bi-check-square h2"></i>
                                     </div>
                                     <div class="ml-4">
-                                        <h5 class="card-title mb-0 mx-3">User</h5>
+                                        <h5 class="card-title mb-0 mx-3">Tallies</h5>
                                     </div>
                                 </div>
                             </div>
-                            <a href="user.php" class="btn btn-custom text-white d-inline-block">View</a>
+                            <a href="Tallies" class="btn btn-custom text-white d-inline-block">View</a>
                         </div>
                     </div>
                 </div>

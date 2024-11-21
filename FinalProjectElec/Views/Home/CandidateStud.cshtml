@@ -1,0 +1,330 @@
+﻿@{
+    Layout = "~/Views/Shared/_FinalProjLayout.cshtml";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FFF6DD;
+    }
+
+    .card {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 350px; 
+        margin: 0 auto;
+    }
+
+    .candidate-img {
+        height: 200px;
+        width: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: 0 auto;
+    }
+
+    .candidate-card {
+        background-color: #FFE28E;
+    }
+
+    .candidate-info {
+        padding: 1.5rem;
+        background-color: #FFF;
+        min-height: 250px;
+    }
+
+    .candidate-name {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .candidate-position {
+        font-size: 1rem;
+        color: #0e1111;
+    }
+
+    .candidate-description {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+
+    .flip-card-front img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 100%;
+        margin: 0 auto;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
+    }
+
+    .flip-card {
+        background-color: transparent;
+        width: 190px;
+        height: 254px;
+        perspective: 1000px;
+        font-family: Poppins;
+    }
+
+    .title {
+        font-size: 1.5em;
+        font-weight: 900;
+        text-align: center;
+        margin: 0;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 150%;
+        height: 150%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+
+    .flip-card-front, .flip-card-back {
+        box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border: 2px solid coral;
+        border-radius: 1rem;
+    }
+
+    .flip-card-front {
+        background: linear-gradient(120deg, #FFF9A3 40%, #F8E071 80%);
+        color: black;
+        border: 3px solid black;
+    }
+
+    .flip-card-back {
+        background: linear-gradient(120deg, #1c1c1c 30%, #595959 88%);
+        color: white;
+        border: 3px solid white;
+        transform: rotateY(180deg);
+    }
+
+    h2 {
+        background: linear-gradient(120deg, #1c1c1c 30%, #595959 88%);
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        border: 3px solid #FFF;
+        border-radius: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1.5rem;
+        margin-top:5rem
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .btn {
+        background-color: #000000;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        border-radius: 10px;
+        border: 2px dashed #000000;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        transition: .4s;
+    }
+
+
+        .btn span:last-child {
+            display: none;
+        }
+
+        .btn:hover {
+            transition: .4s;
+            border: 2px dashed #000000;
+            background-color: #fff;
+            color: #000000 !important;
+        }
+
+
+
+        .btn:active {
+            background-color: #87dbd0;
+        }
+
+
+    .button {
+        margin-top: 70%;
+        outline: 0;
+        grid-gap: 8px;
+        align-items: center;
+        background-color: #FFEE8C;
+        border: 1px solid #000;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-flex;
+        flex-shrink: 0;
+        font-size: 55px;
+        gap: 8px;
+        justify-content: center;
+        line-height: 1.5;
+        overflow: hidden;
+        padding: 16px 24px;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        transition: all .14s ease-out;
+        white-space: nowrap;
+        color: #000;
+    }
+
+        .button:hover {
+            box-shadow: 4px 4px 0 #000;
+            transform: translate(-4px,-4px);
+        }
+
+        .button:focus-visible {
+            outline-offset: 1px;
+        }
+
+
+    .logo {
+        position: absolute;
+        width: auto;
+        height: 60%;
+        top: 16%;
+        left: 36%;
+        padding: 10px 10px;
+        border-radius: 5px;
+        text-align: center;
+    }
+</style>
+
+<nav class="transparent navbar-fixed">
+    <div class="nav-wrapper">
+        <a class="brand-logo black-text" href="Homepage"><img src="~/Content/Images/logo.png" alt="Alternate Text" style="width:100%; height:2.3em;" /></a>
+        <a class="center brand-logo black-text clawed-text" style="text-decoration: none; font-size: 47px;">Decision that Leave a Mark</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="CandidateStud" style="color: black; text-decoration:none;">Candidates</a></li>
+            <li></li>
+            <li><a href="badges.html" style="color: black; text-decoration: none;">Vote</a></li>
+            <li><a href="Homepage" style="color: black; text-decoration: none;">About Us</a></li>
+            <li><a class="btn white-text" href="RegisterStud">Register</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4" >Meet the Candidates for President</h2>
+    <div class="row" style="margin-left:5em;">
+        <div class="col-md-4 mb-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/Content/Images/jhoanna.jpg" alt="Alternate Text" />
+                        <p style="font-size:20px; margin-top:8px;">Jhoanna Robles</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">The Vanguard</p>
+                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/Content/Images/aiah.jpg" alt="Alternate Text" />
+                        <p style="font-size: 20px; margin-top: 8px;">Aiah Arceta</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">The Thomasian Voice</p>
+                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/Content/Images/sheena.jpg" alt="Alternate Text" />
+                        <p style="font-size: 20px; margin-top: 8px;">Sheena Catacutan</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">Golden Hearts</p>
+                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4" style="margin-top:5em;">Meet the Candidates for Vice President</h2>
+    <div class="row" style="margin-left:5em;">
+        <div class="col-md-4 mb-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/Content/Images/stacey.jpg" alt="Alternate Text" />
+                        <p style="font-size: 20px; margin-top: 8px;">Stacey Sevilleja</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">The Vanguard</p>
+                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/Content/Images/colet.jpg" alt="Alternate Text" />
+                        <p style="font-size: 20px; margin-top: 8px;">Colet Vergara</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">The Thomasian Voice</p>
+                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="~/Content/Images/gwen.jpg" alt="Alternate Text" />
+                        <p style="font-size: 20px; margin-top: 8px;">Gwen Apuli</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">Golden Hearts</p>
+                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
