@@ -154,6 +154,7 @@
     <Content Include="Content\Images\jhoanna.jpg" />
     <Content Include="Content\Images\loading-19.svg" />
     <Content Include="Content\Images\logo.png" />
+    <Content Include="Content\Images\logooo-removebg-preview.png" />
     <Content Include="Content\Images\sheena.jpg" />
     <Content Include="Content\Images\stacey.jpg" />
     <Content Include="Content\Images\ust bg.jpg" />
@@ -1003,6 +1004,7 @@
     <Content Include="Views\Home\RegisterStud.cshtml" />
     <Content Include="Views\Home\LoginStud.cshtml" />
     <Content Include="Views\Home\LoginAdmin.cshtml" />
+    <Content Include="Views\Home\Votingpage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

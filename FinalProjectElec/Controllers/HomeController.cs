@@ -74,5 +74,9 @@ namespace FinalProjectElec.Controllers
         {
             return View();
         }
+        public ActionResult Votingpage()
+        {
+            return View();
+        }
     }
 }

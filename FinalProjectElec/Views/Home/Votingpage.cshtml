@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "~/Views/Shared/_FinalProjLayout.cshtml";
+}
+<style>
+
+
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: rgba(255,254,200);
+    }
+
+    .btn {
+        background-color: #000000;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        border-radius: 10px;
+        border: 2px dashed #000000;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        transition: .4s;
+    }
+
+
+        .btn span:last-child {
+            display: none;
+        }
+
+        .btn:hover {
+            transition: .4s;
+            border: 2px dashed #000000;
+            background-color: #fff;
+            color: #000000 !important;
+        }
+
+
+
+        .btn:active {
+            background-color: #87dbd0;
+        }
+
+
+    .button {
+        margin-top: 70%;
+        outline: 0;
+        grid-gap: 8px;
+        align-items: center;
+        background-color: #FFEE8C;
+        border: 1px solid #000;
+        border-radius: 4px;
+        cursor: pointer;
+        display: inline-flex;
+        flex-shrink: 0;
+        font-size: 55px;
+        gap: 8px;
+        justify-content: center;
+        line-height: 1.5;
+        overflow: hidden;
+        padding: 16px 24px;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        transition: all .14s ease-out;
+        white-space: nowrap;
+        color: #000;
+    }
+
+        .button:hover {
+            box-shadow: 4px 4px 0 #000;
+            transform: translate(-4px,-4px);
+        }
+
+        .button:focus-visible {
+            outline-offset: 1px;
+        }
+
+
+    .logo {
+        position: absolute;
+        width: auto;
+        height: 65%;
+        top: 10%;
+        left: 35%;
+        padding: 10px 10px;
+        border-radius: 5px;
+        text-align: center;
+        filter: brightness(1.1);
+    }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 5;
+        margin-top: 1em;
+        padding: 1em 1em;
+        width: 50%;
+        margin-left: 17.5em;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+        }
+
+    .container {
+        position: relative;
+        z-index: 2;
+        padding: 0;
+    }
+
+    .white {
+        background-color: white;
+        opacity: 1;
+        margin-top: -4em;
+        padding: 2em 3em;
+        border-radius: 1rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+<nav class="transparent navbar-fixed">
+    <div class="nav-wrapper">
+        <a class="center brand-logo black-text clawed-text" style="font-size:47px;">Decision that Leave a Mark</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="CandidateStud" style="color:black">Candidates</a></li>
+            <li></li>
+            <li><a href="badges.html" style="color:black">Vote</a></li>
+            <li><a href="Homepage" style="color:black">About Us</a></li>
+            <li><a class="btn white-text" href="RegisterStud">Register</a></li>
+        </ul>
+    </div>
+</nav>
