@@ -5,7 +5,9 @@ using System.Web;
 
 namespace FinalProjectElec.Models
 {
+    
     public class finElec
     {
+
     }
 }
