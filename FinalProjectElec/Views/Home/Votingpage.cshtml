@@ -134,21 +134,21 @@
         </ul>
     </div>
 </nav>
-<div class="container mt-5">
-    <h2 class="text-center mb-4">President</h2>
+<div class="container mt-5" ng-repeat="positionsData in positionData">
+    <h2 class="text-center mb-4">{{positionsData.position_name}}</h2>
     <div class="radiobtns">
-        <label class="custom-radio">
-            <input type="radio" name="radio" value="" style="display:none !important;" />
+        <label class="custom-radio" ng-repeat="candidatesData in candidateData | filter: { pos_id: positionsData.position_id } | orderBy: 'c_partyid'">
+            <input type="radio" name="{{positionsData.position_name}}_rad" value="" style="display:none !important;" />
             <span class="radio-btn">
                 <i class="bi bi-check2"></i>
                 <div class="img-icon">
-                    <img src="~/Content/Images/aiah.jpg" alt="Alternate Text" />
-                    <h3>Aiah Arceta</h3>
+                    @*<img src="~/Content/Images/aiah.jpg" alt="Alternate Text" />*@
+                    <h3>{{candidatesData.c_fname + " " + candidatesData.c_lname}}</h3>
                 </div>
             </span>
         </label>
-        <label class="custom-radio">
-            <input type="radio" name="radio" value="" style="display:none !important;" />
+        @*<label class="custom-radio">
+            <input type="radio" name="{{positionsData.position_name}}_rad" value="" style="display:none !important;" />
             <span class="radio-btn">
                 <i class="bi bi-check2"></i>
                 <div class="img-icon">
@@ -158,7 +158,7 @@
             </span>
         </label>
         <label class="custom-radio">
-            <input type="radio" name="radio" value="" style="display:none !important;" />
+            <input type="radio" name="{{positionsData.position_name}}_rad" value="" style="display:none !important;" />
             <span class="radio-btn">
                 <i class="bi bi-check2"></i>
                 <div class="img-icon">
@@ -166,6 +166,6 @@
                     <h3>Jhoanna Robles</h3>
                 </div>
             </span>
-        </label>
+        </label>*@
     </div>
 </div>

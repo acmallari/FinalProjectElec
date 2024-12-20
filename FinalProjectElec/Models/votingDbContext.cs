@@ -33,7 +33,15 @@ namespace FinalProjectElec.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Configurations.Add(new tblaccountsMap());
             modelBuilder.Configurations.Add(new tblcandidatesMap());
+            modelBuilder.Configurations.Add(new tbllogsMap());
+            modelBuilder.Configurations.Add(new tblpartiesMap());
+            modelBuilder.Configurations.Add(new tblpositionsMap());
+            modelBuilder.Configurations.Add(new tblstudentsMap());
+            modelBuilder.Configurations.Add(new tbltalliesMap());
+            modelBuilder.Configurations.Add(new tblvotesetsMap());
+            modelBuilder.Configurations.Add(new tblvotesMap());
         }
     }
 }

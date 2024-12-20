@@ -221,25 +221,25 @@
     </div>
 </nav>
 
-<div class="container mt-5">
-    <h2 class="text-center mb-4" >Meet the Candidates for President</h2>
+<div class="container mt-5" ng-repeat="positionsData in positionData">
+    <h2 class="text-center mb-4" >Meet the Candidates for {{positionsData.position_name}}</h2>
     <div class="row" style="margin-left:5em;">
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4" ng-repeat="candidatesData in candidateData | filter: { pos_id: positionsData.position_id } | orderBy: 'c_partyid'">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src="~/Content/Images/jhoanna.jpg" alt="Alternate Text" />
-                        <p style="font-size:20px; margin-top:8px;">Jhoanna Robles</p>
+                        @*<img src="~/Content/Images/jhoanna.jpg" alt="Alternate Text" />*@
+                        <p style="font-size:20px; margin-top:8px;">{{candidatesData.c_fname + " " + candidatesData.c_lname}}</p>
                     </div>
                     <div class="flip-card-back">
-                        <p class="title">The Vanguard</p>
-                        <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
+                        <p class="title">{{candidatesData.party_name}}</p>
+                        <p>{{candidatesData.party_campaign}}</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4 mb-4">
+        @*<div class="col-md-4 mb-4">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -267,10 +267,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </div>
 </div>
-<div class="container mt-5">
+@*<div class="container mt-5">
 
     <h2 class="text-center mb-4" style="margin-top:5em;">Meet the Candidates for Vice President</h2>
     <div class="row" style="margin-left:5em;">
@@ -319,7 +319,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
