@@ -153,10 +153,11 @@
         }
 
     .btn-container {
-        position: fixed;
         bottom: 10px;
         width: 100%;
         text-align: center;
+        margin-top: 1em;
+        margin-bottom: 2em;
     }
 </style>
 <nav class="navbar-fixed">
@@ -176,7 +177,7 @@
         <h2 class="text-center mb-4">{{positionsData.position_name}}</h2>
         <div class="radiobtns">
             <label class="custom-radio" ng-repeat="candidatesData in candidateData | filter: { pos_id: positionsData.position_id } | orderBy: 'c_partyid'">
-                <input type="radio" name="{{positionsData.position_name}}_rad" value="" style="display:none !important;" />
+                <input type="radio" name="{{positionsData.position_name}}_rad" value="{{candidatesData.c_fname + " " + candidatesData.c_lname}}" style="display:none !important;" />
                 <span class="radio-btn">
                     <i class="bi bi-check2"></i>
                     <div class="img-icon">
