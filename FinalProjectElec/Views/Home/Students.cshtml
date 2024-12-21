@@ -6,6 +6,35 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <style>
+    #modal3 .modal-content {
+        border: none !important; /* Remove border */
+        box-shadow: none !important; /* Remove shadow */
+    }
+
+    .modal .modal-content .card {
+        border: none;
+        box-shadow: none;
+    }
+
+    .modal-content {
+        color: black; /* Adjust text color for contrast */
+        padding: 20px; /* Add some padding for content spacing */
+        max-height: 80vh; /* Ensure the modal doesn't grow too large */
+        background-color: white;
+    }
+
+    .modal::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .modal {
+        width: 50%;
+        border-radius: 15px; /* Adjust the radius as needed */
+    }
+
+        .modal .modal-content .col:last-child {
+            margin-bottom: 1em; /* Adjust space as needed */
+        }
 
     .btn-custom {
         color: #FDFD96 !important;
@@ -218,36 +247,102 @@
     </aside>
     <div class="main p-3">
         <div class='container mt-5'>
-            <form method='post' class='mb-3'>
-                <button type='button' name='add' class='btn btn-custom ms-2' data-bs-toggle='modal' btn-sm me-3 data-bs-target='#add'><i class='bi bi-database-fill-add me-2'></i>Add a Position</button>
-            </form>
-        </div>
-        <div class='container-fluid text-center mt-3'>
-            <table class='table table-custom table-bordered mx-auto border-1' style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
-                <tr>
-                    <th class='table-custom text-white'> Position </th>
-                    <th class='table-custom text-white'> Created On </th>
-                    <th class='table-custom text-white'> Updated On </th>
-                </tr>
-                <tr>
-                    <td class='table-custom-1'> President </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                </tr>
-                <tr>
-                    <td class='table-custom-1'> Vice President </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                </tr>
-                <tr>
-                    <td class='table-custom-1'> Secretary </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                </tr>
-            </table>
+            @*button for add modal*@
+            <button type='button' name='add' class="btn btn-custom ms-2 modal-trigger d-flex align-items-center" data-target="modal3" btn-sm me-3><i class="material-icons" style="margin-right:3px;">add_box</i>Add a Student</button>
+            @*content modal of add button*@
+            <div id="modal3" class="modal">
+                <div class="modal-content">
+                    <span class="card-title" style="font-size:40px; font-family: Poppins">• Add •</span>
+                    <div class="row">
+                        <div class="input-field col s4 m4 l4">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input id="firstname" type="text" class="validate" ng-model="fName" required>
+                            <label for="firstname" style="font-family: Poppins; color: black">First Name*</label>
+                        </div>
+                        <div class="input-field col s4 m4 l4">
+                            <input id="middlename" type="text" class="validate" ng-model="mName">
+                            <label for="middlename" style="font-family: Poppins; color: black">Middle Name</label>
+                        </div>
+                        <div class="input-field col s4 m4 l4">
+                            <input id="lastname" type="text" class="validate" ng-model="lName" required>
+                            <label for="lastname" style="font-family: Poppins; color: black">Last Name*</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">mail</i>
+                            <input id="email" type="text" class="validate" ng-model="uEmail" required>
+                            <label for="email" style="font-family: Poppins; color: black">Email Address*</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="pass" type="password" class="validate" ng-model="uPass" required>
+                            <label for="pass" style="font-family: Poppins; color: black">Password*</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">business</i>
+                            <input id="address" type="text" class="validate" ng-model="uAddress" required>
+                            <label for="address" style="font-family: Poppins; color: black">User Address*</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">local_phone</i>
+                            <input id="num" type="text" class="validate" ng-model="uNum" required>
+                            <label for="num" style="font-family: Poppins; color: black">Phone Number*</label>
+                        </div>
+                    </div>
+                    <div class="row d-flex justify-content-between">
+                        <div class="col s12 m6 l6">
+                            <a class="modal-close waves-effect waves-light red lighten-3 btn-large shadow-2 black-text" style="font-size: 20px; font-family: Poppins; margin-left:7em;" ng-click="cancel()">
+                                <i class="material-icons left black-text">cancel</i>Cancel
+                            </a>
+                        </div>
+                        <div class="col s12 m6 l6">
+                            <a class="waves-effect waves-light green lighten-3 btn-large shadow-1 black-text" style="font-size: 20px; font-family: Poppins; margin-left: 1em;" ng-click="save()">
+                                <i class="material-icons left black-text">add</i>Add
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='container-fluid text-center mt-3'>
+                <table class='table table-custom table-bordered mx-auto border-1' style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
+                    <tr>
+                        <th class='table-custom text-white'> Position </th>
+                        <th class='table-custom text-white'> Created On </th>
+                        <th class='table-custom text-white'> Updated On </th>
+                    </tr>
+                    <tr>
+                        <td class='table-custom-1'> President </td>
+                        <td class='table-custom-1'> 11/21/2024 </td>
+                        <td class='table-custom-1'> 11/21/2024 </td>
+                    </tr>
+                    <tr>
+                        <td class='table-custom-1'> Vice President </td>
+                        <td class='table-custom-1'> 11/21/2024 </td>
+                        <td class='table-custom-1'> 11/21/2024 </td>
+                    </tr>
+                    <tr>
+                        <td class='table-custom-1'> Secretary </td>
+                        <td class='table-custom-1'> 11/21/2024 </td>
+                        <td class='table-custom-1'> 11/21/2024 </td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems);
+    });
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
             crossorigin="anonymous"></script>
