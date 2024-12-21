@@ -57,7 +57,7 @@
 
     .wrapper {
         display: flex;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow effect */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .main {
@@ -186,15 +186,21 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="Positions" class="sidebar-link active">
+                <a href="Students" class="sidebar-link">
                     <i class="bi bi-person-raised-hand h6 me-2"></i>
-                    <span>Positions</span>
+                    <span>Students</span>
                 </a>
             </li>
             <li class="sidebar-item">
                 <a href="Tallies" class="sidebar-link">
                     <i class="bi bi-check-square h6 me-2"></i>
                     <span>Tallies</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="Votes" class="sidebar-link active">
+                    <i class="bi bi-check2-circle h6 me-2"></i>
+                    <span>Votes</span>
                 </a>
             </li>
             <li class="sidebar-item">
@@ -212,36 +218,27 @@
     </aside>
     <div class="main p-3">
         <div class='container mt-5'>
-            <form method='post' class='mb-3'>
-                <button type='button' name='add' class='btn btn-custom ms-2' data-bs-toggle='modal' btn-sm me-3 data-bs-target='#add'><i class='bi bi-database-fill-add me-2'></i>Add a Position</button>
-            </form>
+
         </div>
         <div class='container-fluid text-center mt-3'>
             <table class='table table-custom table-bordered mx-auto border-1' style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
                 <tr>
-                    <th class='table-custom text-white'> Position </th>
+                    <th class='table-custom text-white'> Candidate </th>
+                    <th class='table-custom text-white'> Value </th>
                     <th class='table-custom text-white'> Created On </th>
                     <th class='table-custom text-white'> Updated On </th>
                 </tr>
                 <tr>
-                    <td class='table-custom-1'> President </td>
+                    <td class='table-custom-1'> Angelico Mallari </td>
+                    <td class='table-custom-1'> 11 </td>
                     <td class='table-custom-1'> 11/21/2024 </td>
                     <td class='table-custom-1'> 11/21/2024 </td>
-                </tr>
-                <tr>
-                    <td class='table-custom-1'> Vice President </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                </tr>
-                <tr>
-                    <td class='table-custom-1'> Secretary </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
+
                 </tr>
             </table>
         </div>
     </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-            crossorigin="anonymous"></script>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>

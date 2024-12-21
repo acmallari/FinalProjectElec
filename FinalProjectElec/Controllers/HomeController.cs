@@ -51,11 +51,15 @@ namespace FinalProjectElec.Controllers
         {
             return View();
         }
-        public ActionResult Positions()
+        public ActionResult Students()
         {
             return View();
         }
         public ActionResult Tallies()
+        {
+            return View();
+        }
+        public ActionResult Votes()
         {
             return View();
         }
