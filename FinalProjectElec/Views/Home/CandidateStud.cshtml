@@ -207,7 +207,7 @@
     }
 </style>
 
-<nav class="transparent navbar-fixed">
+<nav class="transparent navbar-fixed" ng-init="initVoteSet()">
     <div class="nav-wrapper">
         <a class="brand-logo black-text" href="Homepage"><img src="~/Content/Images/thomvote_logo.png" alt="Alternate Text" style="width:100%; height:2em; bottom:10%;" /></a>
         <a class="center brand-logo black-text clawed-text" style="text-decoration: none; font-size: 47px;">Decision that Leave a Mark</a>
@@ -224,7 +224,7 @@
 <div class="container mt-5" ng-repeat="positionsData in positionData">
     <h2 class="text-center mb-4" >Meet the Candidates for {{positionsData.position_name}}</h2>
     <div class="row" style="margin-left:5em;">
-        <div class="col-md-4 mb-4" ng-repeat="candidatesData in candidateData | filter: { pos_id: positionsData.position_id } | orderBy: 'c_partyid'">
+        <div class="col-md-4 mb-4" ng-repeat="candidatesData in candidateData | filter: { pos_id: positionsData.position_id, vs_num: curSet.set_num } | orderBy: 'c_partyid'">
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">

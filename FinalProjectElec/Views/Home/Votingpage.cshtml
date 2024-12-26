@@ -160,7 +160,7 @@
         margin-bottom: 2em;
     }
 </style>
-<nav class="navbar-fixed">
+<nav class="navbar-fixed" ng-init="initVoteSet()">
     <div class="nav-wrapper">
         <a class="brand-logo black-text"><img src="~/Content/Images/thomvote_logo.png" alt="Alternate Text" style="width:100%; height:2em; bottom:10%;" /></a>
         <a class="center brand-logo black-text clawed-text" style="text-decoration: none; font-size: 47px;">Decision that Leave a Mark</a>
@@ -176,8 +176,8 @@
     <div class="container mt-5" ng-repeat="positionsData in positionData">
         <h2 class="text-center mb-4">{{positionsData.position_name}}</h2>
         <div class="radiobtns">
-            <label class="custom-radio" ng-repeat="candidatesData in candidateData | filter: { pos_id: positionsData.position_id } | orderBy: 'c_partyid'">
-                <input type="radio" name="{{positionsData.position_name}}_rad" value="{{candidatesData.c_fname + " " + candidatesData.c_lname}}" style="display:none !important;" />
+            <label class="custom-radio" ng-repeat="candidatesData in candidateData | filter: { pos_id: positionsData.position_id, vs_num: curSet.set_num } | orderBy: 'c_partyid'">
+                <input type="radio" name="{{positionsData.position_name}}_rad" value="{{candidatesData.c_id}}"  ng-model="pos[positionsData.position_id]" style="display:none !important;" />
                 <span class="radio-btn">
                     <i class="bi bi-check2"></i>
                     <div class="img-icon">
@@ -190,7 +190,7 @@
         </div>
     </div>
     <div class="btn-container">
-        <a class="btn white-text" href="LoginAdmin">Submit</a>
+        <a class="btn white-text" ng-click="submitVote(curSet.set_num)">Submit</a>
     </div>
 </form>
             @*<label class="custom-radio">

@@ -21,6 +21,7 @@ namespace FinalProjectElec.Models
         }
 
         public virtual DbSet<tblaccountsModel> tblaccounts { get; set; }
+        public virtual DbSet<tblcandidatesetsModel> tblcandidatesets { get; set; }
         public virtual DbSet<tblcandidatesModel> tblcandidates { get; set; }
         public virtual DbSet<tbllogsModel> tbllogs { get; set; }
         public virtual DbSet<tblpartiesModel> tblparties { get; set; }
@@ -34,6 +35,7 @@ namespace FinalProjectElec.Models
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new tblaccountsMap());
+            modelBuilder.Configurations.Add(new tblcandidatesetsMap());
             modelBuilder.Configurations.Add(new tblcandidatesMap());
             modelBuilder.Configurations.Add(new tbllogsMap());
             modelBuilder.Configurations.Add(new tblpartiesMap());

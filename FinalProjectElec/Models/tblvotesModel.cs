@@ -11,7 +11,8 @@ namespace FinalProjectElec.Models
         public int vote_studid { get; set; }
         public int vote_votesetid { get; set; }
         public String vote_value { get; set; }
+        public int archive_status { get; set; }
         public DateTime created_on { get; set; }
-        public DateTime updated_on { get; set; }
+        public DateTime? updated_on { get; set; }
     }
 }

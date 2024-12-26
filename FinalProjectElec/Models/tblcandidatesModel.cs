@@ -12,7 +12,8 @@ namespace FinalProjectElec.Models
         public String candidate_lname { get; set; }
         public int candidate_partyid { get; set; }
         public int candidate_positionid { get; set; }
+        public int archive_status { get; set; }
         public DateTime created_on { get; set; }
-        public DateTime updated_on { get; set; }
+        public DateTime? updated_on { get; set; }
     }
 }

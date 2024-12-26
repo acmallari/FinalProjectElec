@@ -172,6 +172,51 @@
     .sidebar-item {
         position: relative;
     }
+
+    /*.dt-layout-start, dt-layout-end {
+        background: transparent;
+        margin-left: 20px;
+        color: white !important;
+    }
+
+
+    .dt-container {
+        color: white !important;
+        background: transparent;
+    }
+
+    .dt-layout-row {
+        background: #AD7A3A;
+    }
+
+    .dt-length label {
+        color: white !important;
+        font-family: RubikRegular;
+        font-size: 15px;
+        text-transform: capitalize;
+    }
+
+    .dt-paging nav {
+        background-color: #E3A857;
+        color: white;
+    }*/
+
+
+    #dt-search-0 {
+        width: 70% !important;
+        margin: 5px;
+        background-color: white;
+        border-radius: 10px;
+        border: none;
+        color: black;
+        font-family: RubikRegular;
+    }
+
+    /*.dt-search label {
+        color: white !important;
+        font-family: RubikRegular;
+        font-size: 15px;
+    }*/
 </style>
 
 <div class="wrapper">
@@ -312,20 +357,20 @@
                 </div>
             </div>
             <div class='container-fluid text-center mt-3'>
-                <table class='table table-custom table-bordered mx-auto border-1' style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
-                    <tr>
-                        <th class='table-custom text-white'> Name </th>
-                        <th class='table-custom text-white'> OTP </th>
-                        <th class='table-custom text-white'> Type </th>
+                <table class='table table-custom table-bordered mx-auto border-1' id="accountTable" style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
+                    <thead>
+                        <th class='table-custom text-white'> Email </th>
+                        <th class='table-custom text-white'> Password </th>
+                        <th class='table-custom text-white'> Archive Status </th>
                         <th class='table-custom text-white'> Created On </th>
                         <th class='table-custom text-white'> Updated On </th>
-                    </tr>
-                    <tr>
-                        <td class='table-custom-1'> Angelico Mallari </td>
-                        <td class='table-custom-1'> 319016 </td>
-                        <td class='table-custom-1'> Student </td>
-                        <td class='table-custom-1'> 11/21/2024 </td>
-                        <td class='table-custom-1'> 11/21/2024 </td>
+                    </thead>
+                    <tr ng-repeat="accountsData in accountData">
+                        <td class='table-custom-1'>{{accountsData.account_email}}</td>
+                        <td class='table-custom-1'>{{accountsData.account_pass}}</td>
+                        <td class='table-custom-1'>{{accountsData.archive_status}}</td>
+                        <td class='table-custom-1'>{{accountsData.created_on}}</td>
+                        <td class='table-custom-1'>{{accountsData.updated_on}}</td>
 
                     </tr>
                 </table>

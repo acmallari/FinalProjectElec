@@ -142,6 +142,16 @@
     .sidebar-item {
         position: relative;
     }
+
+    #dt-search-0 {
+        width: 70% !important;
+        margin: 5px;
+        background-color: white;
+        border-radius: 10px;
+        border: none;
+        color: black;
+        font-family: RubikRegular;
+    }
 </style>
 
 <div class="wrapper">
@@ -221,20 +231,22 @@
             
         </div>
         <div class='container-fluid text-center mt-3'>
-            <table class='table table-custom table-bordered mx-auto border-1' style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
-                <tr>
-                    <th class='table-custom text-white'> Name </th>
-                    <th class='table-custom text-white'> Type </th>
+            <table class='table table-custom table-bordered mx-auto border-1' id="logTable" style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
+                <thead>
+                    <th class='table-custom text-white'> Email </th>
+                    <th class='table-custom text-white'> Student Number </th>
                     <th class='table-custom text-white'> Action </th>
+                    <th class='table-custom text-white'> Archive Status </th>
                     <th class='table-custom text-white'> Created On </th>
                     <th class='table-custom text-white'> Updated On </th>
-                </tr>
-                <tr>
-                    <td class='table-custom-1'> Angelico Mallari </td>
-                    <td class='table-custom-1'> Student </td>
-                    <td class='table-custom-1'> Logged In </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
+                </thead>
+                <tr ng-repeat="logsData in logData">
+                    <td class='table-custom-1'>{{logsData.log_email}}</td>
+                    <td class='table-custom-1'>{{logsData.log_studNum}}</td>
+                    <td class='table-custom-1'>{{logsData.log_action}}</td>
+                    <td class='table-custom-1'>{{logsData.archive_status}}</td>
+                    <td class='table-custom-1'>{{logsData.created_on}}</td>
+                    <td class='table-custom-1'>{{logsData.updated_on}}</td>
 
                 </tr>
             </table>

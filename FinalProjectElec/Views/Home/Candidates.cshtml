@@ -169,6 +169,16 @@
     .sidebar-item {
         position: relative;
     }
+
+    #dt-search-0 {
+        width: 70% !important;
+        margin: 5px;
+        background-color: white;
+        border-radius: 10px;
+        border: none;
+        color: black;
+        font-family: RubikRegular;
+    }
 </style>
 
 <div class="wrapper">
@@ -317,20 +327,22 @@
                 </div>
             </div>
             <div class='container-fluid text-center mt-3'>
-                <table class='table table-custom table-bordered mx-auto border-1' style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
-                    <tr>
+                <table class='table table-custom table-bordered mx-auto border-1' id="candiTable" style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
+                    <thead>
                         <th class='table-custom text-white'> Name </th>
                         <th class='table-custom text-white'> Party </th>
                         <th class='table-custom text-white'> Position </th>
+                        <th class='table-custom text-white'> Archive Status </th>
                         <th class='table-custom text-white'> Created On </th>
                         <th class='table-custom text-white'> Updated On </th>
-                    </tr>
-                    <tr>
-                        <td class='table-custom-1'> Angelico Mallari </td>
-                        <td class='table-custom-1'> UST United </td>
-                        <td class='table-custom-1'> President </td>
-                        <td class='table-custom-1'> 11/21/2024 </td>
-                        <td class='table-custom-1'> 11/21/2024 </td>
+                    </thead>
+                    <tr ng-repeat="candisData in candiData">
+                        <td class='table-custom-1'>{{candisData.c_fname + " " + candisData.c_lname}}</td>
+                        <td class='table-custom-1'>{{candisData.party_name}}</td>
+                        <td class='table-custom-1'>{{candisData.position_name}}</td>
+                        <td class='table-custom-1'>{{candisData.archive_status}}</td>
+                        <td class='table-custom-1'>{{candisData.created_on}}</td>
+                        <td class='table-custom-1'>{{candisData.updated_on}}</td>
 
                     </tr>
                 </table>

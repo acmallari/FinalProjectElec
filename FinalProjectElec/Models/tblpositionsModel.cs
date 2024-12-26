@@ -9,7 +9,8 @@ namespace FinalProjectElec.Models
     {
         public int position_id { get; set; }
         public String position_name { get; set; }
+        public int archive_status { get; set; }
         public DateTime created_on { get; set; }
-        public DateTime updated_on { get; set; }
+        public DateTime? updated_on { get; set; }
     }
 }

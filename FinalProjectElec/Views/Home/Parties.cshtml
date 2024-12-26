@@ -172,6 +172,16 @@
     .sidebar-item {
         position: relative;
     }
+
+    #dt-search-0 {
+        width: 70% !important;
+        margin: 5px;
+        background-color: white;
+        border-radius: 10px;
+        border: none;
+        color: black;
+        font-family: RubikRegular;
+    }
 </style>
 
 <div class="wrapper">
@@ -312,21 +322,20 @@
                 </div>
             </div>
             <div class='container-fluid text-center mt-3'>
-                <table class='table table-custom table-bordered mx-auto border-1' style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
-                    <tr>
+                <table class='table table-custom table-bordered mx-auto border-1' id="partyTable" style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
+                    <thead>
                         <th class='table-custom text-white'> Party Name </th>
+                        <th class='table-custom text-white'> Party Campaign </th>
+                        <th class='table-custom text-white'> Archive Status </th>
                         <th class='table-custom text-white'> Created On </th>
                         <th class='table-custom text-white'> Updated On </th>
-                    </tr>
-                    <tr>
-                        <td class='table-custom-1'> UST United </td>
-                        <td class='table-custom-1'> 11/21/2024 </td>
-                        <td class='table-custom-1'> 11/21/2024 </td>
-                    </tr>
-                    <tr>
-                        <td class='table-custom-1'> The Thomasian Voice </td>
-                        <td class='table-custom-1'> 11/21/2024 </td>
-                        <td class='table-custom-1'> 11/21/2024 </td>
+                    </thead>
+                    <tr ng-repeat="partiesData in partyData">
+                        <td class='table-custom-1'>{{partiesData.party_name}}</td>
+                        <td class='table-custom-1'>{{partiesData.party_campaign}}</td>
+                        <td class='table-custom-1'>{{partiesData.archive_status}}</td>
+                        <td class='table-custom-1'>{{partiesData.created_on}}</td>
+                        <td class='table-custom-1'>{{partiesData.updated_on}}</td>
                     </tr>
                 </table>
             </div>

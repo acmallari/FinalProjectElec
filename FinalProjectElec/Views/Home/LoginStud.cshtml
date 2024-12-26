@@ -48,7 +48,7 @@
         margin-left: 12em;
     }
 </style>
-<nav class="transparent navbar-fixed">
+<nav class="transparent navbar-fixed" ng-init="initVoteSet()">
     <div class="nav-wrapper">
         <a class="brand-logo black-text"><img src="~/Content/Images/thomvote_logo.png" alt="Alternate Text" style="width:100%; height:2em; bottom:10%;" /></a>
         <a class="center brand-logo black-text clawed-text" style="font-size:47px;">Decision that Leave a Mark</a>
@@ -75,16 +75,16 @@
                                 <div class="row">
                                     <div class="input-field col s12 m12 l12">
                                         <i class="material-icons prefix">people</i>
-                                        <input id="uEmail" type="text" class="validate" ng-model="uEmail" required>
+                                        <input id="uEmail" type="text" class="validate" ng-model="uStudNum" required>
                                         <label for="uEmail" style="font-family: Poppins">Student Number*</label>
                                     </div>
                                 </div>
                                 <div class="col s12 m12 l12">
                                     <div class="col s12 m6 l6">
-                                        <a class="waves-effect waves-light red lighten-3 btn-large col s12 m12 l12 shadow-1 black-text" style="font-size: 20px; font-family: Poppins; width:100%;" ng-click="submit()" href="Homepage"><i class="material-icons left black-text">keyboard_return</i>Go Back</a>
+                                        <a class="waves-effect waves-light red lighten-3 btn-large col s12 m12 l12 shadow-1 black-text" style="font-size: 20px; font-family: Poppins; width:100%;" href="Homepage"><i class="material-icons left black-text">keyboard_return</i>Go Back</a>
                                     </div>
                                     <div class="col s12 m6 l6">
-                                        <a class="waves-effect waves-light green lighten-3 btn-large col s12 m12 l12 shadow-1 black-text" style="font-size: 20px; font-family: Poppins; width:100%;" ng-click="submit()"><i class="material-icons left black-text">keyboard_tab</i>Login</a>
+                                        <a class="waves-effect waves-light green lighten-3 btn-large col s12 m12 l12 shadow-1 black-text" style="font-size: 20px; font-family: Poppins; width:100%;" ng-click="studLogin(curSet.set_num)"><i class="material-icons left black-text">keyboard_tab</i>Login</a>
                                     </div>
 
                                 </div>

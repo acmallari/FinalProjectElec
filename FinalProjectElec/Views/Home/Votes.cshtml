@@ -142,6 +142,16 @@
     .sidebar-item {
         position: relative;
     }
+
+    #dt-search-0 {
+        width: 70% !important;
+        margin: 5px;
+        background-color: white;
+        border-radius: 10px;
+        border: none;
+        color: black;
+        font-family: RubikRegular;
+    }
 </style>
 
 <div class="wrapper">
@@ -221,18 +231,22 @@
 
         </div>
         <div class='container-fluid text-center mt-3'>
-            <table class='table table-custom table-bordered mx-auto border-1' style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
-                <tr>
-                    <th class='table-custom text-white'> Candidate </th>
-                    <th class='table-custom text-white'> Value </th>
+            <table class='table table-custom table-bordered mx-auto border-1' id="voteTable" style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
+                <thead>
+                    <th class='table-custom text-white'> Student Number </th>
+                    <th class='table-custom text-white'> Vote Set </th>
+                    <th class='table-custom text-white'> Vote Value </th>
+                    <th class='table-custom text-white'> Archive Status </th>
                     <th class='table-custom text-white'> Created On </th>
                     <th class='table-custom text-white'> Updated On </th>
-                </tr>
-                <tr>
-                    <td class='table-custom-1'> Angelico Mallari </td>
-                    <td class='table-custom-1'> 11 </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
-                    <td class='table-custom-1'> 11/21/2024 </td>
+                </thead>
+                <tr ng-repeat="votesData in voteData">
+                    <td class='table-custom-1'>{{votesData.stud_num}}</td>
+                    <td class='table-custom-1'>{{votesData.set_num}}</td>
+                    <td class='table-custom-1'>{{votesData.vote_value}}</td>
+                    <td class='table-custom-1'>{{votesData.archive_status}}</td>
+                    <td class='table-custom-1'>{{votesData.created_on}}</td>
+                    <td class='table-custom-1'>{{votesData.updated_on}}</td>
 
                 </tr>
             </table>

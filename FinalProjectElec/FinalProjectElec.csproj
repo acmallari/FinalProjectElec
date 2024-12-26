@@ -151,8 +151,10 @@
     <Compile Include="Models\finElec.cs" />
     <Compile Include="Models\tblaccountsMap.cs" />
     <Compile Include="Models\tblaccountsModel.cs" />
+    <Compile Include="Models\tblcandidatesetsModel.cs" />
     <Compile Include="Models\tblcandidatesMap.cs" />
     <Compile Include="Models\tblcandidatesModel.cs" />
+    <Compile Include="Models\tblcandidatesetsMap.cs" />
     <Compile Include="Models\tbllogsMap.cs" />
     <Compile Include="Models\tbllogsModel.cs" />
     <Compile Include="Models\tblpartiesMap.cs" />
@@ -167,6 +169,7 @@
     <Compile Include="Models\tblvotesetsModel.cs" />
     <Compile Include="Models\tblvotesMap.cs" />
     <Compile Include="Models\tblvotesModel.cs" />
+    <Compile Include="Models\tallyDataModel.cs" />
     <Compile Include="Models\votingDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -5,11 +5,11 @@ using System.Web;
 
 namespace FinalProjectElec.Models
 {
-    public class tblpartiesModel
+    public class tblcandidatesetsModel
     {
-        public int party_id { get; set; }
-        public String party_name { get; set; }
-        public String party_campaign { get; set; }
+        public int candiset_id { get; set; }
+        public int candiset_candidateid { get; set; }
+        public int candiset_votesetid { get; set; }
         public int archive_status { get; set; }
         public DateTime created_on { get; set; }
         public DateTime? updated_on { get; set; }
