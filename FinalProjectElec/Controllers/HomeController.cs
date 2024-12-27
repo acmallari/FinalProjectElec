@@ -385,5 +385,26 @@ namespace FinalProjectElec.Controllers
                 return Json(votesData, JsonRequestBehavior.AllowGet);
             }
         }
+
+        //public JsonResult loadPieData()
+        //{
+        //    using(var db = new votingDbContext())
+        //    {
+        //        var getPos = db.tblpositions.Select(p => p).ToList();
+        //        List<int> posCount = new List<int>();
+
+        //        foreach(var pos in getPos)
+        //        {
+        //            var tallyCount = (from t in db.tbltallies
+        //                              join c in db.tblcandidates on t.tally_candidateid equals c.candidate_id
+        //                              where c.candidate_positionid == pos.position_id
+        //                              select new
+        //                              {
+        //                                  tally_value = t.tally_value
+        //                              });
+
+        //        }
+        //    }
+        //}
     }
 }
