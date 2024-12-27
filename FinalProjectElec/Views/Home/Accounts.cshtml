@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <style>
     #modal4 .modal-content {
-        border: none !important; /* Remove border */
-        box-shadow: none !important; /* Remove shadow */
+        border: none !important;
+        box-shadow: none !important; 
     }
 
     .modal .modal-content .card {
@@ -17,9 +17,9 @@
     }
 
     .modal-content {
-        color: black; /* Adjust text color for contrast */
-        padding: 20px; /* Add some padding for content spacing */
-        max-height: 80vh; /* Ensure the modal doesn't grow too large */
+        color: black; 
+        padding: 20px; 
+        max-height: 80vh; 
         background-color: white;
     }
 
@@ -29,12 +29,45 @@
 
     .modal {
         width: 50%;
-        border-radius: 15px; /* Adjust the radius as needed */
+        border-radius: 15px;
+        height:auto;
     }
 
         .modal .modal-content .col:last-child {
-            margin-bottom: 1em; /* Adjust space as needed */
+            margin-bottom: 1em; 
         }
+
+    .btn-edit {
+        color: #000000 !important;
+        background-color: #ADD8E6;
+    }
+
+        .btn-edit:hover {
+            color: #ADD8E6 !important;
+            background-color: #000000;
+        }
+
+        .btn-edit:hover {
+            color: #ADD8E6 !important;
+        }
+
+    .btn-archive {
+        color: #000000 !important;
+        background-color: #FF8488;
+    }
+
+        .btn-archive:hover {
+            color: #ADD8E6 !important;
+            background-color: #000000;
+        }
+
+        .btn-archive:hover {
+            color: #FF8488 !important;
+        }
+
+    .modal-footer a {
+        text-decoration: none;
+    }
 
     .btn-custom {
         color: #FDFD96 !important;
@@ -364,15 +397,83 @@
                         <th class='table-custom text-white'> Archive Status </th>
                         <th class='table-custom text-white'> Created On </th>
                         <th class='table-custom text-white'> Updated On </th>
+                        <th class='table-custom text-white'> Edit </th>
+                        <th class='table-custom text-white'> Archive </th>
                     </thead>
-                    <tr ng-repeat="accountsData in accountData">
-                        <td class='table-custom-1'>{{accountsData.account_email}}</td>
-                        <td class='table-custom-1'>{{accountsData.account_pass}}</td>
-                        <td class='table-custom-1'>{{accountsData.archive_status}}</td>
-                        <td class='table-custom-1'>{{accountsData.created_on}}</td>
-                        <td class='table-custom-1'>{{accountsData.updated_on}}</td>
+                        <tr ng-repeat="accountsData in accountData">
+                            <td class='table-custom-1'>{{accountsData.account_email}}</td>
+                            <td class='table-custom-1'>{{accountsData.account_pass}}</td>
+                            <td class='table-custom-1'>{{accountsData.archive_status}}</td>
+                            <td class='table-custom-1'>{{accountsData.created_on}}</td>
+                            <td class='table-custom-1'>{{accountsData.updated_on}}</td>
+                            <td class='table-custom-1'>
+                                @*button for edit modal*@
+                                <button type='button' name='edit' class="btn btn-edit ms-2 modal-trigger d-flex align-items-center" data-target="modal3" btn-sm me-3><i class="material-icons" style="margin-right:3px;">create</i>Edit</button>
+                                @*content modal of edit button*@
+                                <div id="modal3" class="modal">
+                                    <div class="modal-content">
+                                        <span class="card-title" style="font-size:40px; font-family: Poppins">• Edit •</span>
+                                        <div class="row">
+                                            <div class="input-field col s4 m4 l4">
+                                                <i class="material-icons prefix">account_circle</i>
+                                                <input id="firstname" type="text" class="validate" ng-model="fName" required>
+                                                <label for="firstname" style="font-family: Poppins; color: black">First Name*</label>
+                                            </div>
+                                            <div class="input-field col s4 m4 l4">
+                                                <input id="middlename" type="text" class="validate" ng-model="mName">
+                                                <label for="middlename" style="font-family: Poppins; color: black">Middle Name</label>
+                                            </div>
+                                            <div class="input-field col s4 m4 l4">
+                                                <input id="lastname" type="text" class="validate" ng-model="lName" required>
+                                                <label for="lastname" style="font-family: Poppins; color: black">Last Name*</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m12 l12">
+                                                <i class="material-icons prefix">mail</i>
+                                                <input id="email" type="text" class="validate" ng-model="uEmail" required>
+                                                <label for="email" style="font-family: Poppins; color: black">Email Address*</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="input-field col s12 m12 l12">
+                                                <i class="material-icons prefix">lock</i>
+                                                <input id="pass" type="password" class="validate" ng-model="uPass" required>
+                                                <label for="pass" style="font-family: Poppins; color: black">Password*</label>
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex justify-content-between">
+                                            <div class="col s12 m6 l6">
+                                                <a class="modal-close waves-effect waves-light red lighten-3 btn-large shadow-2 black-text" style="font-size: 20px; font-family: Poppins; margin-left:7em;" ng-click="cancel()">
+                                                    <i class="material-icons left black-text">cancel</i>Cancel
+                                                </a>
+                                            </div>
+                                            <div class="col s12 m6 l6">
+                                                <a class="waves-effect waves-light green lighten-3 btn-large shadow-1 black-text" style="font-size: 20px; font-family: Poppins; margin-left: 1em;" ng-click="save()">
+                                                    <i class="material-icons left black-text">add</i>Add
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class='table-custom-1'>
+                                @*button for archive modal*@
+                                <button type='button' name='archive' class="btn btn-archive ms-2 modal-trigger d-flex align-items-center" data-target="modal4" btn-sm me-3><i class="material-icons" style="margin-right:3px;">archive</i>Archive</button>
+                                @*content modal of archive button*@
+                                <div id="modal4" class="modal">
+                                    <div class="modal-content">
+                                        <span class="card-title" style="font-size:40px; font-family: Poppins">• Archive •</span>
+                                        <p>Are you sure you want to archive this row?</p>
+                                        <div class="modal-footer">
+                                            <a href="#!" class="modal-close waves-effect waves-blue btn-flat">Cancel</a>
+                                            <a href="#!" class="modal-close waves-effect waves-red btn-flat">Archive</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
 
-                    </tr>
+                        </tr>
                 </table>
             </div>
         </div>
