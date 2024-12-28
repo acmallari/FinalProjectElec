@@ -94,7 +94,8 @@
                     icon: "error"
                 });
             } else if (returnValue == 1) {
-                sessionStorage.setItem("uEmail", email);
+                var setEmail = JSON.stringify(email);
+                sessionStorage.setItem("uEmail", setEmail);
                 window.location.href = "/Home/Dashboard";
                 //alert("Success")
             }
