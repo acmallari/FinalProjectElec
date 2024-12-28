@@ -204,7 +204,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="LoginAdmin" class="sidebar-link">
+                <a href="LoginAdmin" class="sidebar-link" ng-click="logout()">
                     <i class="bi bi-box-arrow-left h6 me-2"></i>
                     <span>Logout</span>
                 </a>
@@ -220,26 +220,59 @@
         <div class='container mt-5'>
             
         </div>
-        <div class='container-fluid text-center mt-3'>
-            @*<table class='table table-custom table-bordered mx-auto border-1' style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
-            <tr>
-                <th class='table-custom text-white'> Candidate </th>
-                <th class='table-custom text-white'> Value </th>
-                <th class='table-custom text-white'> Created On </th>
-                <th class='table-custom text-white'> Updated On </th>
-            </tr>
-            <tr>
-                <td class='table-custom-1'> Angelico Mallari </td>
-                <td class='table-custom-1'> 11 </td>
-                <td class='table-custom-1'> 11/21/2024 </td>
-                <td class='table-custom-1'> 11/21/2024 </td>
-
-            </tr>
-        </table>*@
-            <div class="container mt-5" ng-repeat="positionsData in positionData">
-                <h2 class="text-center mb-4">{{positionsData.position_name}}</h2>
+        <div class='container-fluid text-center mt-3' ng-init="initVoteSet()">
+            <div class="container mt-5" ng-init="loadPiePres()">
+                <h2 class="text-center mb-4">President</h2>
                 <div class="row" style="margin-left:5em;">
-                    
+                    <canvas id="prespie" class="chart chart-pie"
+                            style="width: 200px; height: 200px;"
+                            chart-data="presdata" chart-labels="preslabels" chart-options="options">
+                    </canvas>
+                </div>
+            </div>
+            <div class="container mt-5" ng-init="loadPieVP()">
+                <h2 class="text-center mb-4">Vice President</h2>
+                <div class="row" style="margin-left:5em;">
+                    <canvas id="vppie" class="chart chart-pie"
+                            style="width: 200px; height: 200px;"
+                            chart-data="vpdata" chart-labels="vplabels" chart-options="options">
+                    </canvas>
+                </div>
+            </div>
+            <div class="container mt-5" ng-init="loadPieSec()">
+                <h2 class="text-center mb-4">Secretary</h2>
+                <div class="row" style="margin-left:5em;">
+                    <canvas id="secpie" class="chart chart-pie"
+                            style="width: 200px; height: 200px;"
+                            chart-data="secdata" chart-labels="seclabels" chart-options="options">
+                    </canvas>
+                </div>
+            </div>
+            <div class="container mt-5" ng-init="loadPieTrea()">
+                <h2 class="text-center mb-4">Treasurer</h2>
+                <div class="row" style="margin-left:5em;">
+                    <canvas id="treapie" class="chart chart-pie"
+                            style="width: 200px; height: 200px;"
+                            chart-data="treadata" chart-labels="trealabels" chart-options="options">
+                    </canvas>
+                </div>
+            </div>
+            <div class="container mt-5" ng-init="loadPieAud()">
+                <h2 class="text-center mb-4">Auditor</h2>
+                <div class="row" style="margin-left:5em;">
+                    <canvas id="audpie" class="chart chart-pie"
+                            style="width: 200px; height: 200px;"
+                            chart-data="auddata" chart-labels="audlabels" chart-options="options">
+                    </canvas>
+                </div>
+            </div>
+            <div class="container mt-5" ng-init="loadPiePRO()">
+                <h2 class="text-center mb-4">Public Relations Officer</h2>
+                <div class="row" style="margin-left:5em;">
+                    <canvas id="propie" class="chart chart-pie"
+                            style="width: 200px; height: 200px;"
+                            chart-data="prodata" chart-labels="prolabels" chart-options="options">
+                    </canvas>
                 </div>
             </div>
         </div>

@@ -22,6 +22,17 @@
 
     $scope.loadPositions();
 
+    $scope.loadParties = function () {
+        var getData = FinalProjService.loadPartiesData();
+
+
+        getData.then(function (ReturnedData) {
+            $scope.partyData = ReturnedData.data;
+        });
+    };
+
+    $scope.loadParties();
+
     //Load Candidate Members
     $scope.loadCandidates = function () {
         var getData = FinalProjService.loadCandidatesData();
@@ -45,13 +56,19 @@
             postData.then(function (ReturnedData) {
                 var returnValue = Number(ReturnedData.data);
                 if (returnValue == 0) {
-                    alert("Invalid");
+                    Swal.fire({
+                        title: "Invalid Student Number",
+                        icon: "error"
+                    });
                 }
                 else if (returnValue == 1) {
                     validateData.then(function (ReturnedVData) {
                         var returnVValue = Number(ReturnedVData.data);
                         if (returnVValue == 0) {
-                            alert("Only one vote per set");
+                            Swal.fire({
+                                title: "Only One Vote Per Set",
+                                icon: "warning"
+                            });
                         } else if (returnVValue == 1) {
                             sessionStorage.setItem("studNum", uStudNum);
                             sessionStorage.setItem("studId", studId);
@@ -72,7 +89,10 @@
         postData.then(function (ReturnedData) {
             var returnValue = Number(ReturnedData.data);
             if (returnValue == 0) {
-                alert("Invalid");
+                Swal.fire({
+                    title: "Invalid Email or Password",
+                    icon: "error"
+                });
             } else if (returnValue == 1) {
                 sessionStorage.setItem("uEmail", email);
                 window.location.href = "/Home/Dashboard";
@@ -405,5 +425,286 @@
     };
 
     $scope.loadVoteDash();
+
+    $scope.loadPiePres = function () {
+        var getSet = FinalProjService.initVoteSet();
+        getSet.then(function (ReturnedSData) {
+            var voteSet = ReturnedSData.data.set_num
+            var getData = FinalProjService.loadPiePres(voteSet);
+
+            getData.then(function (ReturnedData) {
+                var presData = ReturnedData.data;
+
+                $scope.preslabels = presData.map(item => item.candidate_name);
+                $scope.presdata = presData.map(item => item.tally_value);
+            });
+        });
+    }
+
+    $scope.loadPieVP = function () {
+        var getSet = FinalProjService.initVoteSet();
+        getSet.then(function (ReturnedSData) {
+            var voteSet = ReturnedSData.data.set_num
+            var getData = FinalProjService.loadPieVP(voteSet);
+
+            getData.then(function (ReturnedData) {
+                var vpData = ReturnedData.data;
+
+                $scope.vplabels = vpData.map(item => item.candidate_name);
+                $scope.vpdata = vpData.map(item => item.tally_value);
+            });
+        });
+    }
+
+    $scope.loadPieSec = function () {
+        var getSet = FinalProjService.initVoteSet();
+        getSet.then(function (ReturnedSData) {
+            var voteSet = ReturnedSData.data.set_num
+            var getData = FinalProjService.loadPieSec(voteSet);
+
+            getData.then(function (ReturnedData) {
+                var secData = ReturnedData.data;
+
+                $scope.seclabels = secData.map(item => item.candidate_name);
+                $scope.secdata = secData.map(item => item.tally_value);
+            });
+        });
+    }
+
+    $scope.loadPieTrea = function () {
+        var getSet = FinalProjService.initVoteSet();
+        getSet.then(function (ReturnedSData) {
+            var voteSet = ReturnedSData.data.set_num
+            var getData = FinalProjService.loadPieTrea(voteSet);
+
+            getData.then(function (ReturnedData) {
+                var treaData = ReturnedData.data;
+
+                $scope.trealabels = treaData.map(item => item.candidate_name);
+                $scope.treadata = treaData.map(item => item.tally_value);
+            });
+        });
+    }
+
+    $scope.loadPieAud = function () {
+        var getSet = FinalProjService.initVoteSet();
+        getSet.then(function (ReturnedSData) {
+            var voteSet = ReturnedSData.data.set_num
+            var getData = FinalProjService.loadPieAud(voteSet);
+
+            getData.then(function (ReturnedData) {
+                var audData = ReturnedData.data;
+
+                $scope.audlabels = audData.map(item => item.candidate_name);
+                $scope.auddata = audData.map(item => item.tally_value);
+            });
+        });
+    }
+
+    $scope.loadPiePRO = function () {
+        var getSet = FinalProjService.initVoteSet();
+        getSet.then(function (ReturnedSData) {
+            var voteSet = ReturnedSData.data.set_num
+            var getData = FinalProjService.loadPiePRO(voteSet);
+
+            getData.then(function (ReturnedData) {
+                var proData = ReturnedData.data;
+
+                $scope.prolabels = proData.map(item => item.candidate_name);
+                $scope.prodata = proData.map(item => item.tally_value);
+            });
+        });
+    }
+
+    $scope.addAccount = function () {
+        var email = $scope.uEmail;
+        var pass = $scope.uPass
+
+        var postData = FinalProjService.addAccount(email, pass);
+
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "added an Account";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+
+        location.reload();
+    }
+
+    $scope.addParty = function () {
+        var name = $scope.pName;
+        var camp = $scope.pCamp
+
+        var postData = FinalProjService.addParty(name, camp);
+
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "added a Party";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+
+    $scope.addStud = function () {
+        var sNum = $scope.studNum;
+
+        var postData = FinalProjService.addStud(sNum);
+
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "added a Student";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+
+    $scope.addCandi = function () {
+        var cFName = $scope.fName;
+        var cLName = $scope.lName;
+        var cParty = $scope.party;
+        var cPos = $scope.position;
+
+        var postData = FinalProjService.addCandi(cFName, cLName, cParty, cPos);
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "added a Candidate";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+
+    $scope.loadEditAcc = function (accid) {
+        var getData = FinalProjService.loadEditAcc(accid);
+
+        getData.then(function (ReturnedData) {
+            $scope.accEditData = ReturnedData.data;
+            $scope.uEditEmail = ReturnedData.data.accEmail
+            $scope.uEditPass = ReturnedData.data.accPass
+
+            setTimeout(() => {
+                M.updateTextFields();
+            }, 0);
+        });
+    }
+
+    $scope.editAccount = function (accid) {
+        var email = $scope.uEditEmail;
+        var pass = $scope.uEditPass
+
+        var postData = FinalProjService.editAccount(accid, email, pass);
+
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "edited an Account";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+
+    $scope.loadEditCandi = function (candid) {
+        var getData = FinalProjService.loadEditCandi(candid);
+
+        getData.then(function (ReturnedData) {
+            $scope.candiEditData = ReturnedData.data;
+            $scope.editfName = ReturnedData.data.candFname
+            $scope.editlName = ReturnedData.data.candLname
+            $scope.editParty = ReturnedData.data.candParty
+            $scope.editPosition = ReturnedData.data.candPos
+
+            setTimeout(() => {
+                M.updateTextFields();
+            }, 0);
+        });
+    }
+
+    $scope.editCandi = function (candid) {
+        var fname = $scope.editfName;
+        var lname = $scope.editlName;
+        var party = $scope.editParty;
+        var pos = $scope.editPosition;
+
+        var postData = FinalProjService.editCandi(candid, fname, lname, party, pos);
+
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "edited a Candidate";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+
+    $scope.loadEditParty = function (partyid) {
+        var getData = FinalProjService.loadEditParty(partyid);
+
+        getData.then(function (ReturnedData) {
+            $scope.partyEditData = ReturnedData.data;
+            $scope.editpName = ReturnedData.data.partyName
+            $scope.editpCamp = ReturnedData.data.partyCamp
+
+            setTimeout(() => {
+                M.updateTextFields();
+            }, 0);
+        });
+    }
+
+    $scope.editParty = function (partyid) {
+        var pName = $scope.editpName;
+        var pCamp = $scope.editpCamp
+
+        var postData = FinalProjService.editParty(partyid, pName, pCamp);
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "edited a Party";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+
+    $scope.loadEditStud = function (studid) {
+        var getData = FinalProjService.loadEditStud(studid);
+
+        getData.then(function (ReturnedData) {
+            $scope.studEditData = ReturnedData.data;
+            $scope.editstudNum = ReturnedData.data.studNum
+
+            setTimeout(() => {
+                M.updateTextFields();
+            }, 0);
+        });
+    }
+
+    $scope.editStud = function (studid) {
+        var studNum = $scope.editstudNum;
+
+        var postData = FinalProjService.editStud(studid, studNum);
+
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "edited a Student";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+
+    $scope.archiveAcc = function (accid) {
+        var postData = FinalProjService.archiveAcc(accid);
+
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "archived an Account";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+    $scope.archiveCandi = function (candid) {
+        var postData = FinalProjService.archiveCandi(candid);
+
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "archived a Candidate";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+    $scope.archiveParty = function (partyid) {
+        var postData = FinalProjService.archiveParty(partyid);
+
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "archived a Party";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+    $scope.archiveStud = function (studid) {
+        var postData = FinalProjService.archiveStud(studid);
+
+        var uEmail = JSON.parse(sessionStorage.getItem('uEmail'));
+        var lAction = "archived a Student";
+        var postLog = FinalProjService.submitAdminLog(uEmail, lAction);
+        location.reload();
+    }
+
+    $scope.logout = function () {
+        sessionStorage.removeItem('uEmail');
+    }
 
 });

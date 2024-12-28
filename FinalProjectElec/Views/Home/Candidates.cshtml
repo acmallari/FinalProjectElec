@@ -274,7 +274,7 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="LoginAdmin" class="sidebar-link">
+                <a href="LoginAdmin" class="sidebar-link" ng-click="logout()">
                     <i class="bi bi-box-arrow-left h6 me-2"></i>
                     <span>Logout</span>
                 </a>
@@ -301,48 +301,30 @@
                             <label for="firstname" style="font-family: Poppins; color: black">First Name*</label>
                         </div>
                         <div class="input-field col s4 m4 l4">
-                            <input id="middlename" type="text" class="validate" ng-model="mName">
-                            <label for="middlename" style="font-family: Poppins; color: black">Middle Name</label>
-                        </div>
-                        <div class="input-field col s4 m4 l4">
                             <input id="lastname" type="text" class="validate" ng-model="lName" required>
                             <label for="lastname" style="font-family: Poppins; color: black">Last Name*</label>
                         </div>
                     </div>
                     <div class="row">
+                        <label for="partyDropdown" class="selectStatus">Candidate Party</label>
                         <div class="input-field col s12 m12 l12">
-                            <i class="material-icons prefix">mail</i>
-                            <input id="email" type="text" class="validate" ng-model="uEmail" required>
-                            <label for="email" style="font-family: Poppins; color: black">Email Address*</label>
+                            <select class="browser-default" id="partyDropdown" ng-model="party" required>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option ng-repeat="partiesData in partyData" value="{{partiesData.partyid}}">
+                                    {{partiesData.party_name}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="row">
+                        <label for="positionDropdown" class="selectStatus">Candidate Position</label>
                         <div class="input-field col s12 m12 l12">
-                            <i class="material-icons prefix">lock</i>
-                            <input id="pass" type="password" class="validate" ng-model="uPass" required>
-                            <label for="pass" style="font-family: Poppins; color: black">Password*</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <i class="material-icons prefix">business</i>
-                            <input id="address" type="text" class="validate" ng-model="uAddress" required>
-                            <label for="address" style="font-family: Poppins; color: black">User Address*</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12 m12 l12">
-                            <i class="material-icons prefix">local_phone</i>
-                            <input id="num" type="text" class="validate" ng-model="uNum" required>
-                            <label for="num" style="font-family: Poppins; color: black">Phone Number*</label>
-                        </div>
-                    </div>
-                    <h6 style="text-align: left; font-family: Poppins; margin-left: 1em;">Choose a Picture:</h6>
-                    <div class="file-field input-field col s12 m12 l12" style="margin-left:1em; margin-bottom:2em;">
-                        <div class="btn waves-effect waves-light yellow lighten-3" style="display: flex; align-items: center;">
-                            <i class="material-icons black-text" style="margin-right: 8px; vertical-align: middle;">image</i>
-                            <input type="file" accept="image/*" id="img" class="validate" ng-model="uNum" style="display: none;">
-                            <label for="img" style="font-family: Poppins; color: black; margin-bottom: 0; vertical-align: middle;">Upload Image</label>
+                            <select class="browser-default" id="positionDropdown" ng-model="position" required>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option ng-repeat="positionsData in positionData" value="{{positionsData.position_id}}">
+                                    {{positionsData.position_name}}
+                                </option>
+                            </select>
                         </div>
                     </div>
                     <div class="row d-flex justify-content-between">
@@ -352,7 +334,7 @@
                             </a>
                         </div>
                         <div class="col s12 m6 l6">
-                            <a class="waves-effect waves-light green lighten-3 btn-large shadow-1 black-text" style="font-size: 20px; font-family: Poppins; margin-left: 1em;" ng-click="save()">
+                            <a class="waves-effect waves-light green lighten-3 btn-large shadow-1 black-text" style="font-size: 20px; font-family: Poppins; margin-left: 1em;" ng-click="addCandi()">
                                 <i class="material-icons left black-text">add</i>Add
                             </a>
                         </div>
@@ -362,91 +344,96 @@
             <div class='container-fluid text-center mt-3'>
                 <table class='table table-custom table-bordered mx-auto border-1' id="candiTable" style='border-radius: 10px; overflow: hidden; background-color: #eaddcf;'>
                     <thead>
-                        <th class='table-custom text-white'> Name </th>
-                        <th class='table-custom text-white'> Party </th>
-                        <th class='table-custom text-white'> Position </th>
-                        <th class='table-custom text-white'> Archive Status </th>
-                        <th class='table-custom text-white'> Created On </th>
-                        <th class='table-custom text-white'> Updated On </th>
-                        <th class='table-custom text-white'> Edit </th>
-                        <th class='table-custom text-white'> Archive </th>
+                    <th class='table-custom text-white'> Name </th>
+                    <th class='table-custom text-white'> Party </th>
+                    <th class='table-custom text-white'> Position </th>
+                    <th class='table-custom text-white'> Archive Status </th>
+                    <th class='table-custom text-white'> Created On </th>
+                    <th class='table-custom text-white'> Updated On </th>
+                    <th class='table-custom text-white'> Edit </th>
+                    <th class='table-custom text-white'> Archive </th>
                     </thead>
-                        <tr ng-repeat="candisData in candiData">
-                            <td class='table-custom-1'>{{candisData.c_fname + " " + candisData.c_lname}}</td>
-                            <td class='table-custom-1'>{{candisData.party_name}}</td>
-                            <td class='table-custom-1'>{{candisData.position_name}}</td>
-                            <td class='table-custom-1'>{{candisData.archive_status}}</td>
-                            <td class='table-custom-1'>{{candisData.created_on}}</td>
-                            <td class='table-custom-1'>{{candisData.updated_on}}</td>
-                            <td class='table-custom-1'>
-                                @*button for edit modal*@
-                                <button type='button' name='edit' class="btn btn-edit ms-2 modal-trigger d-flex align-items-center" data-target="modal3" btn-sm me-3><i class="material-icons" style="margin-right:3px;">create</i>Edit</button>
-                                @*content modal of edit button*@
-                                <div id="modal3" class="modal">
-                                    <div class="modal-content">
-                                        <span class="card-title" style="font-size:40px; font-family: Poppins">• Edit •</span>
-                                        <div class="row">
-                                            <div class="input-field col s4 m4 l4">
-                                                <i class="material-icons prefix">account_circle</i>
-                                                <input id="firstname" type="text" class="validate" ng-model="fName" required>
-                                                <label for="firstname" style="font-family: Poppins; color: black">First Name*</label>
-                                            </div>
-                                            <div class="input-field col s4 m4 l4">
-                                                <input id="middlename" type="text" class="validate" ng-model="mName">
-                                                <label for="middlename" style="font-family: Poppins; color: black">Middle Name</label>
-                                            </div>
-                                            <div class="input-field col s4 m4 l4">
-                                                <input id="lastname" type="text" class="validate" ng-model="lName" required>
-                                                <label for="lastname" style="font-family: Poppins; color: black">Last Name*</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12 m12 l12">
-                                                <i class="material-icons prefix">mail</i>
-                                                <input id="email" type="text" class="validate" ng-model="uEmail" required>
-                                                <label for="email" style="font-family: Poppins; color: black">Email Address*</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s12 m12 l12">
-                                                <i class="material-icons prefix">lock</i>
-                                                <input id="pass" type="password" class="validate" ng-model="uPass" required>
-                                                <label for="pass" style="font-family: Poppins; color: black">Password*</label>
-                                            </div>
-                                        </div>
-                                        <div class="row d-flex justify-content-between">
-                                            <div class="col s12 m6 l6">
-                                                <a class="modal-close waves-effect waves-light red lighten-3 btn-large shadow-2 black-text" style="font-size: 20px; font-family: Poppins; margin-left:7em;" ng-click="cancel()">
-                                                    <i class="material-icons left black-text">cancel</i>Cancel
-                                                </a>
-                                            </div>
-                                            <div class="col s12 m6 l6">
-                                                <a class="waves-effect waves-light green lighten-3 btn-large shadow-1 black-text" style="font-size: 20px; font-family: Poppins; margin-left: 1em;" ng-click="save()">
-                                                    <i class="material-icons left black-text">add</i>Add
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class='table-custom-1'>
-                                @*button for archive modal*@
-                                <button type='button' name='add' class="btn btn-archive ms-2 modal-trigger d-flex align-items-center" data-target="modal4" btn-sm me-3><i class="material-icons" style="margin-right:3px;">archive</i>Archive</button>
-                                @*content modal of archive button*@
-                                <div id="modal4" class="modal">
-                                    <div class="modal-content">
-                                        <span class="card-title" style="font-size:40px; font-family: Poppins">• Archive •</span>
-                                        <p>Are you sure you want to archive this row?</p>
-                                        <div class="modal-footer">
-                                            <a href="#!" class="modal-close waves-effect waves-blue btn-flat">Cancel</a>
-                                            <a href="#!" class="modal-close waves-effect waves-red btn-flat">Archive</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+                    <tr ng-repeat="candisData in candiData">
+                        <td class='table-custom-1'>{{candisData.c_fname + " " + candisData.c_lname}}</td>
+                        <td class='table-custom-1'>{{candisData.party_name}}</td>
+                        <td class='table-custom-1'>{{candisData.position_name}}</td>
+                        <td class='table-custom-1'>{{candisData.archive_status}}</td>
+                        <td class='table-custom-1'>{{candisData.created_on}}</td>
+                        <td class='table-custom-1'>{{candisData.updated_on}}</td>
+                        <td class='table-custom-1'>
+                            @*button for edit modal*@
+                            <button type='button' name='edit' class="btn btn-edit ms-2 modal-trigger d-flex align-items-center" data-target="modal3" ng-click="loadEditCandi(candisData.cid)" btn-sm me-3><i class="material-icons" style="margin-right:3px;">create</i>Edit</button>
+                            @*content modal of edit button*@
 
-                        </tr>
+                        </td>
+                        <td class='table-custom-1'>
+                            @*button for archive modal*@
+                            <button type='button' name='add' class="btn btn-archive ms-2 modal-trigger d-flex align-items-center" data-target="modal4" ng-click="loadEditCandi(candisData.cid)" btn-sm me-3><i class="material-icons" style="margin-right:3px;">archive</i>Archive</button>
+                        </td>
+
+                    </tr>
                 </table>
+                @*content modal of archive button*@
+                <div id="modal3" class="modal">
+                    <div class="modal-content">
+                        <span class="card-title" style="font-size:40px; font-family: Poppins">• Edit •</span>
+                        <div class="row">
+                            <div class="input-field col s4 m4 l4">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="firstname" type="text" class="validate" ng-model="editfName" required>
+                                <label for="firstname" style="font-family: Poppins; color: black">First Name*</label>
+                            </div>
+                            <div class="input-field col s4 m4 l4">
+                                <input id="lastname" type="text" class="validate" ng-model="editlName" required>
+                                <label for="lastname" style="font-family: Poppins; color: black">Last Name*</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="partyDropdown" class="selectStatus">Candidate Party</label>
+                            <div class="input-field col s12 m12 l12">
+                                <select class="browser-default" id="partyDropdown" ng-model="editParty" required>
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option ng-repeat="partiesData in partyData" value="{{partiesData.partyid}}">
+                                        {{partiesData.party_name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="positionDropdown" class="selectStatus">Candidate Position</label>
+                            <div class="input-field col s12 m12 l12">
+                                <select class="browser-default" id="positionDropdown" ng-model="editPosition" required>
+                                    <option value="" disabled selected>Choose your option</option>
+                                    <option ng-repeat="positionsData in positionData" value="{{positionsData.position_id}}">
+                                        {{positionsData.position_name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-between">
+                            <div class="col s12 m6 l6">
+                                <a class="modal-close waves-effect waves-light red lighten-3 btn-large shadow-2 black-text" style="font-size: 20px; font-family: Poppins; margin-left:7em;" ng-click="cancel()">
+                                    <i class="material-icons left black-text">cancel</i>Cancel
+                                </a>
+                            </div>
+                            <div class="col s12 m6 l6">
+                                <a class="waves-effect waves-light green lighten-3 btn-large shadow-1 black-text" style="font-size: 20px; font-family: Poppins; margin-left: 1em;" ng-click="editCandi(candiEditData.candId)">
+                                    <i class="material-icons left black-text">create</i>Edit
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="modal4" class="modal">
+                    <div class="modal-content">
+                        <span class="card-title" style="font-size:40px; font-family: Poppins">• Archive •</span>
+                        <p>Are you sure you want to archive this row?</p>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-blue btn-flat">Cancel</a>
+                            <a href="#!" class="modal-close waves-effect waves-red btn-flat" ng-click="archiveCandi(candiEditData.candId)">Archive</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 </div>
@@ -457,5 +444,12 @@
     document.addEventListener('DOMContentLoaded', function () {
         var elems = document.querySelectorAll('.modal');
         var instances = M.Modal.init(elems);
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const elems = document.querySelectorAll('select');
+        if (elems.length > 0) {
+            M.FormSelect.init(elems);
+        }
     });
 </script>
